@@ -106,13 +106,13 @@ The mark is a letter. The mark scale is
 
 | Mark | Score      |
 |------|------------|
-| P    | = 1000000  |
-| S    | \>= 950000 |
-| A    | \>= 900000 |
-| B    | \>= 800000 |
-| C    | \>= 700000 |
-| D    | \>= 600000 |
-| E    | \>= 500000 |
+| P    | $=1000000$  |
+| S    | $\ge950000$ |
+| A    | $\ge900000$ |
+| B    | $\ge800000$ |
+| C    | $\ge700000$ |
+| D    | $\ge600000$ |
+| E    | $\ge500000$ |
 | F    | else       |
 
 The mark is also shown dynamically next to the accuracy rate during the gameplay
