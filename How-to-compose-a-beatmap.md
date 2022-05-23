@@ -352,9 +352,7 @@ The ratio consists of two characters, each of which is within `[0-9a-z]` represe
 The first number divided by the second number is
 the ratio of the seeming length of the grouping and the actual length of the grouping.
 The second number can be omitted, and the default value of it is
-```js
-ratio2 = 2**(floor(log2(ratio1)))
-```
+$$\mathit{ratio}_2=2\^{\left\lfloor\log\_2\mathit{ratio}_1\right\rfloor},$$
 where `ratio1` is the first number.
 
 Here is an example of some notes and the rhythm they represent:
