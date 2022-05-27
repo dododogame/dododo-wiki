@@ -3,6 +3,7 @@ The beatmap consists of two parts, the **head** and the list of **row**s.
 The two parts are separated by a single `---` line.
 
 The following are just some specifications.
+To read these, you are assumed to have enough knowledge about notations in sheet music.
 
 # Header
 
