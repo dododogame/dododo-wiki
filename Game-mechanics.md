@@ -9,7 +9,7 @@ There are two types of notes in Dododo, **click**s and **hold**s.
 To hit a note, you should hit a key on the keyboard (on a device with a keyboard)
 or touch the screen (on a device with a touchable screen)
 within the time at which it should be hit (when the [judge line](#judge-line) meets the note)
-plus or minus the inaccuracy tolerance.
+plus or minus the inaccuracy tolerance (judge window).
 
 There are three levels of inaccuracies: perfect, good, and bad.
 Their judge intervals are to be specified in the beatmap and can change throughout the gameplay.
