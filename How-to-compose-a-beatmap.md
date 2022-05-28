@@ -118,15 +118,15 @@ Here is some function names and the corresponding parameters.
 Syntax:
 
 ```text
-PERFECT <interval>
-GOOD <interval>
-BAD <interval>
+PERFECT <window_radius>
+GOOD <window_radius>
+BAD <window_radius>
 ```
 
-These control sentences accept one parameter, indicating the judging interval.
-The `interval` is NOT in milliseconds but is the ratio of the tolerance for a perfect / good / bad judge
+These control sentences accept one parameter, indicating the radius of the judge window.
+The `window_radius` is NOT in milliseconds but is the ratio of the inaccuracy tolerance for a perfect / good / bad judge
 and the total (temporal) length of the row.
-Therefore, judging will be stricter if the row is shorter (in time).
+Therefore, given the same radius of judge window, judging will be stricter if the row is shorter (in time).
 
 ### `BPM`
 
