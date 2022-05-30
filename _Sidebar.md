@@ -6,5 +6,5 @@
 # To beatmappers
 
 - [Game mechanics](https://github.com/UlyssesZh/dododo/wiki/Game-mechanics)
-- [How to compose a beatmap](https://github.com/UlyssesZh/dododo/wiki/How-to-compose-a-beatmap)
+- [Beatmap specifications](https://github.com/UlyssesZh/dododo/wiki/Beatmap-specifications)
 - [How to publish a beatmap](https://github.com/UlyssesZh/dododo/wiki/How-to-publish-a-beatmap)
