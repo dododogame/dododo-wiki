@@ -203,7 +203,9 @@ or being continuous (to possibly make the judge line jump suddenly).
 but `NOTE_X` defines the spatial position of drawn notes
 while `HIT_X` defines the spatial position of the hit effects.
 
-Default: `x`.
+The default setting of `SPACE_X` is `x`.
+The default setting of `NOTE_X` is to be the same as `SPACE_X`.
+The default setting of `HIT_X` is to be the same as `NOTE_X`.
 
 ### `SPACE_Y`, `WIDTH`, `HEIGHT`
 
@@ -360,6 +362,9 @@ All variables set by the gamer in preferences can be used in the math expression
 Note that here the strings are 7-character lower-case hexadecimal notation of colors.
 To get the RGB values (in $[0, 1]$), you can use the methods `red()`, `green()`, `blue()`.
 For example, `'#4c8cff'.red()` returns approximately `0.298`, which is `0x4c / 0xff`. 
+
+The preferences items related to [game modifiers](Game-modifiers) and visuals are not recommended to be used
+because they will be different from the actual in-game settings when the user is replaying something.
 
 ## How to write a note
 
