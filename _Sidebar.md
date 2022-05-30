@@ -2,6 +2,7 @@
 
 - [How to play](https://github.com/UlyssesZh/dododo/wiki/How-to-play)
 - [Game mechanics](https://github.com/UlyssesZh/dododo/wiki/Game-mechanics)
+- [Game modifiers](https://github.com/UlyssesZh/dododo/wiki/Game-modifiers)
 
 # To beatmappers
 
