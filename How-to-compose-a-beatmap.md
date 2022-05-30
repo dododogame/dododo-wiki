@@ -139,7 +139,7 @@ BPM <beatNote1> <beatsPerMinute1>[ <position1>[ <beatNote2> <beatsPerMinute2> <p
 The `beatNote` is a note specified in the same manner in [how to write a note](#how-to-write-a-note).
 The `beatsPerMinute` is the number of beats per minute,
 meaning that one minute is exactly `beatsPerMinute` times as long as the beat note.
-The `position` is the position of the BPM change, specified as a rational number in [0, 1],
+The `position` is the position of the BPM change, specified as a rational number in $[0, 1]$,
 with the start of the row being 0 and the end of the row being 1.
 The position is calculated according to notes' literal length but not their temporal length
 (e.g. a quavar in 180 BPM and one in 200 BPM has the same literal length because they are both quavars).
@@ -168,7 +168,7 @@ TIME <expression>
 Here `<expression>` is a single-variable mathematical expression of variable `x`.
 See [math expressions](#math-expressions).
 
-The expression is a mapping from [0, 1] to [0, 1].
+The expression is a mapping from $[0, 1]$ to $[0, 1]$.
 It *must* be monotonically increasing (because you cannot travel to the past).
 It maps the position in the row to the time at which the position in the row is played.
 The position mapped to 0 is played exactly when the row starts being played,
@@ -179,23 +179,29 @@ For example, with the expression `sqrt(x)` you can have the tempo linearly
 
 Default: `x`.
 
-### `SPACE_X`
+### `SPACE_X`, `NOTE_X`, `HIT_X`
 
 Syntax:
 
 ```text
 SPACE_X <expression>
+NOTE_X <expression>
+HIT_X <expression>
 ```
 
 Here `<expression>` is a single-variable mathematical expression of variable `x`.
 See [math expressions](#math-expressions).
 
-The expression is a mapping from [0, 1] to [0, 1].
-It maps the position ion the row to the spatial position.
+The expression is a mapping from $[0, 1]$ to $[0, 1]$.
+The `SPACE_X` sentence maps the position of the row (according to note lengths) to the spatial position.
 The position mapped to 0 is drawn at the leftmost place,
 and the position mapped to 1 is drawn at the rightmost place.
 It is not necessarily monotonically increasing (to possibly make the judge line move to the left)
 or being continuous (to possibly make the judge line jump suddenly).
+
+`NOTE_X` and `HIT_X` do similar things to what `SPACE_X` does,
+but `NOTE_X` defines the spatial position of drawn notes
+while `HIT_X` defines the spatial position of the hit effects.
 
 Default: `x`.
 
@@ -214,7 +220,7 @@ See [math expressions](#math-expressions).
 
 These control sentences are purely for ornamental performance of the judge line
 because they do not affect the (spatial and temporal) arrangement of notes.
-The expressions are mappings on [0, 1], and the mapped values are lengths in unit of pixels.
+The expressions are mappings on $[0, 1]$, and the mapped values are lengths in unit of pixels.
 
 `SPACE_Y` is the vertical position of the judge line.
 Positive values mean to place the judge line at specified number of pixels above the default position.
@@ -223,6 +229,9 @@ Default: `0`.
 `WIDTH` is the width of the judge line. Default: `1`.
 
 `HEIGHT` is the height of the judge line. Default: `voicesHeight` times the number of voices.
+
+These control sentences are ineffective if the user disabled ornamental judge line performances
+in the preferences.
 
 ### `RED`, `GREEN`, `BLUE`, `ALPHA`
 
@@ -240,8 +249,33 @@ See [math expressions](#math-expressions).
 
 These control sentences are also purely for ornamental performance of the judge line.
 They are used to change the color of the judge line.
-These expressions are mappings from [0, 1] to [0, 1], and the default of them are all `1`
+These expressions are mappings from $[0, 1]$ to $[0, 1]$, and the default of them are all `1`
 (pure and non-transparent white).
+
+These control sentences are ineffective if the user disabled ornamental judge line performances
+in the preferences.
+
+### `FAKE_JUDGE_LINE`
+
+This control sentence creates a new judge line for this row of beatmap but a fake one
+(which does not affect the gameplay but is purely ornamental).
+After this control sentence, you can add the following control sentences
+to define the behaviors of the new fake judge line without affecting the judge lines
+defined previously:
+- `SPACE_X`,
+- `SPACE_Y`,
+- `RED`,
+- `GREEN`,
+- `BLUE`,
+- `ALPHA`,
+- `WIDTH`,
+- `HEIGHT`.
+
+You can create more fake judge lines by using `FAKE_JUDGE_LINE` again
+after finishing defining the previous fake judge line.
+
+This control sentence is not effective if the user disables ornamental judge line performances
+in the preferences.
 
 ### Math expressions
 
@@ -264,16 +298,32 @@ All variables set by the gamer in preferences can be used in the math expression
 
 | Variable                 | Meaning                                   | Type     | Default              |
 |--------------------------|-------------------------------------------|----------|----------------------|
-| `offset`                 | Offset (in ms)                            | Number   | `0.0`                |
 | `playRate`               | Play rate (speed of music)                | Number   | `1.0`                |
 | `autoPlay`               | Auto-play                                 | Boolean  | `false`              |
+| `noBad`                  | No-bad mode                               | Boolean  | `false`              |
+| `noExcess` | No-excess mode | Boolean | `false` |
+| `judgeWindow` | Judge window (smaller is stricter) | Number | `1.0` |
+| `autoCompleteHolds` | Automatically hold for hold notes | Boolean | `false` |
+| `offset`                 | Offset (in ms)                            | Number   | `0.0`                |
 | `countdown`              | Show countdown before resuming            | Boolean  | `true`               |
-| `FCAPIndicator`          | Full combo / all perfect indicator        | Boolean  | `true`               |
 | `autoRestartGood`        | Automatically restart when failing to AP  | Boolean  | `false`              |
 | `autoRestartMiss`        | Automatically restart when failing to FC  | Boolean  | `false`              |
 | `F7Pause`                | Press <kbd>F7</kbd> to pause              | Boolean  | `true`               |
 | `backtickRestart`        | Press <kbd>`</kbd> to restart             | Boolean  | `true`               |
 | `autoPause`              | Automatically pause when losing focus     | Boolean  | `true`               |
+| `recordVisual` | Record visual preferences to replay | Boolean | `true` |
+| `FCAPIndicator`          | Full combo / all perfect indicator        | Boolean  | `true`               |
+| `TPSIndicator` | Taps per second indicator | Boolean | `true` |
+| `judgeLinePerformances` | Enable ornamental judge line effects | Boolean | `true` |
+| `flashWarningGood` | Warn by flash the screen at good hits | Boolean | `false` |
+| `falshWarningMiss` | Warn by flash the screen at combo breaks | Boolean | `true` |
+| `showInaccuracyData` | Show inaccuracy data | Boolean | `true` |
+| `comboPopupInterval` | Interval of combo popups (set 0 to disable) | Number | `25` |
+| `fadeIn` | Fade-in (ratio to resolution, 0 to disable) | Number | `0.0` |
+| `fadeOut` | Fade-out (ratio to resolution, 0 to disable) | Number | `0.0` |
+| `reverseVoices` | Reverse voices | Boolean | `false` |
+| `mirror` | Mirror (flip horizontally) | Boolean | `false` |
+| `showKeyboard` | Show keyboard pressings | Boolean | `false` on mobile devices, otherwise `true` |
 | `fontSize`               | Font size                                 | Number   | `28`                 |
 | `textHeight`             | Height of text lines                      | Number   | `40`                 |
 | `margin`                 | Margins                                   | Number   | `16`                 |
@@ -285,6 +335,8 @@ All variables set by the gamer in preferences can be used in the math expression
 | `beamsSpacing`           | Spacing between note beams                | Number   | `4`                  |
 | `unconnectedBeamsLength` | Length of unconnected note beams          | Number   | `20`                 |
 | `barlinesHeight`         | Height of barlines                        | Number   | `256`                |
+| `hitEffectRadius` | Radius of hit effects | Number | `32` |
+| `distanceBetweenLines` | Distance between beatmap rows | Number | `512` |
 | `notesColor`             | Color of notes                            | String   | `'#ffffff'`          |
 | `auxiliariesColor`       | Color of auxiliaries (barlines etc)       | String   | `'#4c4c4c'`          |
 | `perfectColor`           | Color of perfect hits                     | String   | `'#ffff00'`          |
@@ -302,10 +354,11 @@ All variables set by the gamer in preferences can be used in the math expression
 | `musicVolume`            | Volume of music                           | Number   | `1.0`                |
 | `hitSoundVolume`         | Volume of hit sound                       | Number   | `2.0`                |
 | `masterVolume`           | Master volume                             | Number   | `1.0`                |
+| `language` | Language | String | According to browser settings |
 | `save`                   | Save preferences in the web storage       | Boolean  | `false`              |
 
 Note that here the strings are 7-character lower-case hexadecimal notation of colors.
-To get the RGB values (in [0, 1]), you can use the methods `red()`, `green()`, `blue()`.
+To get the RGB values (in $[0, 1]$), you can use the methods `red()`, `green()`, `blue()`.
 For example, `'#4c8cff'.red()` returns approximately `0.298`, which is `0x4c / 0xff`. 
 
 ## How to write a note
