@@ -8,6 +8,7 @@ To join our community, join our [Discord server](https://discord.gg/yYdMw5hm2K).
 
 - [How to play](How-to-play)
 - [Game mechanics](Game-mechanics)
+- [Game modifiers](Game-modifiers)
 
 # To beatmappers
 
