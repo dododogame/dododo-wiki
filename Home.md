@@ -12,5 +12,5 @@ To join our community, join our [Discord server](https://discord.gg/yYdMw5hm2K).
 # To beatmappers
 
 - [Game mechanics](Game-mechanics)
-- [How to compose a beatmap](How-to-compose-a-beatmap)
+- [Beatmap file specifications](Beatmap-file-specifications)
 - [How to publish a beatmap](How-to-publish-a-beatmap)
