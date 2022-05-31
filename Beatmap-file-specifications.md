@@ -338,7 +338,7 @@ All variables set by the gamer in preferences can be used in the math expression
 | `unconnectedBeamsLength` | Length of unconnected note beams          | Number   | `20`                 |
 | `barlinesHeight`         | Height of barlines                        | Number   | `256`                |
 | `hitEffectRadius` | Radius of hit effects | Number | `32` |
-| `distanceBetweenLines` | Distance between beatmap rows | Number | `512` |
+| `distanceBetweenLines` | Distance between beatmap rows | Number | `384` |
 | `notesColor`             | Color of notes                            | String   | `'#ffffff'`          |
 | `auxiliariesColor`       | Color of auxiliaries (barlines etc)       | String   | `'#4c4c4c'`          |
 | `perfectColor`           | Color of perfect hits                     | String   | `'#ffff00'`          |
