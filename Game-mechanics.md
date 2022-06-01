@@ -10,6 +10,13 @@ To hit a note, you should hit a key on the keyboard (on a device with a keyboard
 or touch the screen (on a device with a touchable screen)
 within the time at which it should be hit (when the [judge line](#judge-line) meets the note)
 plus or minus the inaccuracy tolerance (judge window).
+The available keys on the keyboard that can hit notes are
+- All keys corresponding to ASCII characters,
+- All keys in the numbers pad (including <kbd>NumLock</kbd>),
+- Whitespace keys: <kbd>Tab</kbd>, <kbd>Space Bar</kbd>, <kbd>Enter</kbd>,
+- Navigation keys: four arrows, <kbd>Home</kbd>, <kbd>End</kbd>, <kbd>PageUp</kbd>, <kbd>PageDown</kbd>,
+- Editing keys: <kbd>Insert</kbd>, <kbd>Delete</kbd>, <kbd>Backspace</kbd>, <kbd>Clear</kbd>,
+- Modifier keys: <kbd>CapsLock</kbd>, <kbd>Shift</kbd>.
 
 There are three levels of inaccuracies: perfect, good, and bad.
 Their judge intervals are to be specified in the beatmap and can change throughout the gameplay.
@@ -31,12 +38,37 @@ After a note is hit, there will appear an indicator in the [inaccuracy bar](#ina
 If a hit cannot correspond to any notes, it is regarded as an excess hit,
 which also affects the [score](#score), the [accuracy rate](#accuracy-rate), and the [combo](#combo).
 
+Some of the notes have halo drawn around it, and they are called **big notes**.
+Big notes are hit in the same way as other notes,
+but they affect the calculation of [score](#score).
+
 # Bar lines
 
 **Bar line**s are vertical lines as auxiliaries for reading the beatmap.
 They are an imitation of bar lines from sheet music.
 They can also be used to ornament the beatmap.
-They themselves do not affect the gameplay.
+They themselves do not affect the gameplay,
+but they can separate the notes into chunks called **measures**.
+
+If all the notes in a measure are hit perfect,
+the measure is judged as perfect.
+If any of the notes in a measure is hit good while no notes in the measure are hit bad or missed,
+then the measure is judged as good.
+If any of the notes in a measure is hit bad while no notes in the measure are missed,
+then the measure is judged as bad.
+If any of the notes in a measure is missed, then the measure is judged as miss.
+Excess hits do not affect the judge of measures.
+All measures with no hittable notes are finally perfect.
+
+The numbers of measures judged to be in these four categories
+are respectively shown in parentheses in the summary of your gameplay
+next to the number of perfect, good, bad, and miss notes.
+The judge of measures affects the calculation of [score](#score).
+
+Note that the judge of a measure is only related to how the notes are hit
+but not necessarily related to how the notes are completed.
+If a hold is hit good but is finally missed because it is released to early,
+it is still regarded as being hit good when considering the judge of the measure it is in.
 
 # Judge line
 
@@ -95,27 +127,59 @@ $$\mathit{AccuracyRate}=\frac{\mathit{perfect}+\mathit{good}/4-\mathit{excess}}{
 The game will assign you a **score** based on your performance in playing a beatmap.
 The score is shown dynamically during the gameplay, just like the accuracy rate,
 at the up-right corner of the gameplay interface.
-The calculation of the score involves the number of perfects, goods, bads, misses, and excesses:
-$$\mathit{Score} = 1000000\cdot\frac{\mathit{perfect}+\mathit{good}/4-\mathit{excess}}{\mathit{notesCount}}.$$
 
-Unlike some (or most) rhythm games, Dododo does not take combo into account when scoring.
+The score consists of two parts, each of which has a cap of 500000,
+and the score is the sum of the two parts, which has a cap of 1000000.
+
+The first part of the score is 500000 times a weighted average of accuracy rates,
+with big notes having double weights:
+$$S\_1=500000\cdot\frac{
+	p+p\_{\mathrm b}+\left(g+g\_{\mathrm b}\right)/4-e
+}{N+N\_{\mathrm b}},$$
+where
+- $S\_1$ is the first part of score;
+- $p$ is the total number of perfect hit notes (including big notes);
+- $g$ is the total number of perfect hit notes (including big notes);
+- $p\_{\mathrm b}$ is the total number of perfect hit big notes;
+- $g\_{\mathrm b}$ is the total number of good hit big notes;
+- $e$ is the total number of excess hits;
+- $N$ is the total number of notes (including big notes);
+- $N\_{\mathrm b}$ is the total number of big notes.
+
+The second part of the score is related to your performance of completing measures.
+See the explanation of [bar lines](#bar-lines) to know about judging measures.
+$$S\_2=500000\cdot\frac{
+	p\_{\mathrm m}+g\_{\mathrm m}/2
+}{N_{\mathrm m}},$$
+where
+- $S\_2$ is the second part of score;
+- $p\_{\mathrm m}$ is the total number of perfect measures;
+- $g\_{\mathrm m}$ is the total number of good measures;
+- $N\_{\mathrm m}$ is the total number of measures.
+
+The final score is the sum of the two parts:
+$$S=S\_1+S\_2.$$
+
+# Mark
 
 Once a gameplay is finished (the judge line reaches the end of the beat map),
-a mark will be calculated and shown in the bottom-right corner of the gameplay interface.
+a mark will be calculated according to the accuracy rate
+and shown in the top-middle of the gameplay interface.
 The mark is a letter. The mark scale is
 
-| Mark | Score      |
-|------|------------|
-| P    | $=1000000$  |
-| S    | $\ge950000$ |
-| A    | $\ge900000$ |
-| B    | $\ge800000$ |
-| C    | $\ge700000$ |
-| D    | $\ge600000$ |
-| E    | $\ge500000$ |
-| F    | else       |
+| Mark | Accuracy rate |
+|------|---------------|
+| P    | $=1$          |
+| S    | $\ge0.95$     |
+| A    | $\ge0.9$      |
+| B    | $\ge0.8$      |
+| C    | $\ge0.7$      |
+| D    | $\ge0.6$      |
+| E    | $\ge0.5$      |
+| F    | else          |
+
+The mark is only related to the accuracy rate
+but not related to the score, the game modifiers, etc.
 
 The mark is also shown dynamically next to the accuracy rate during the gameplay
 based on your performance so far.
-There is a simple relation between the accuracy rate and the score when the gameplay has been finished:
-$$\mathit{Score}=1000000\mathit{AccuracyRate}.$$

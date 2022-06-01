@@ -298,66 +298,66 @@ condition1 ? value1 : condition2 ? value2 : ... : elseValue
 ```
 All variables set by the gamer in preferences can be used in the math expressions:
 
-| Variable                 | Meaning                                   | Type     | Default              |
-|--------------------------|-------------------------------------------|----------|----------------------|
-| `playRate`               | Play rate (speed of music)                | Number   | `1.0`                |
-| `autoPlay`               | Auto-play                                 | Boolean  | `false`              |
-| `noBad`                  | No-bad mode                               | Boolean  | `false`              |
-| `noExcess` | No-excess mode | Boolean | `false` |
-| `judgeWindow` | Judge window (smaller is stricter) | Number | `1.0` |
-| `autoCompleteHolds` | Automatically hold for hold notes | Boolean | `false` |
-| `offset`                 | Offset (in ms)                            | Number   | `0.0`                |
-| `countdown`              | Show countdown before resuming            | Boolean  | `true`               |
-| `autoRestartGood`        | Automatically restart when failing to AP  | Boolean  | `false`              |
-| `autoRestartMiss`        | Automatically restart when failing to FC  | Boolean  | `false`              |
-| `F7Pause`                | Press <kbd>F7</kbd> to pause              | Boolean  | `true`               |
-| `backtickRestart`        | Press <kbd>`</kbd> to restart             | Boolean  | `true`               |
-| `autoPause`              | Automatically pause when losing focus     | Boolean  | `true`               |
-| `recordVisual` | Record visual preferences to replay | Boolean | `true` |
-| `FCAPIndicator`          | Full combo / all perfect indicator        | Boolean  | `true`               |
-| `TPSIndicator` | Taps per second indicator | Boolean | `true` |
-| `judgeLinePerformances` | Enable ornamental judge line effects | Boolean | `true` |
-| `flashWarningGood` | Warn by flash the screen at good hits | Boolean | `false` |
-| `falshWarningMiss` | Warn by flash the screen at combo breaks | Boolean | `true` |
-| `showInaccuracyData` | Show inaccuracy data | Boolean | `true` |
-| `comboPopupInterval` | Interval of combo popups (set 0 to disable) | Number | `25` |
-| `fadeIn` | Fade-in (ratio to resolution, 0 to disable) | Number | `0.0` |
-| `fadeOut` | Fade-out (ratio to resolution, 0 to disable) | Number | `0.0` |
-| `reverseVoices` | Reverse voices | Boolean | `false` |
-| `mirror` | Mirror (flip horizontally) | Boolean | `false` |
-| `showKeyboard` | Show keyboard pressings | Boolean | `false` on mobile devices, otherwise `true` |
-| `fontSize`               | Font size                                 | Number   | `28`                 |
-| `textHeight`             | Height of text lines                      | Number   | `40`                 |
-| `margin`                 | Margins                                   | Number   | `16`                 |
-| `voicesHeight`           | Height of voices                          | Number   | `64`                 |
-| `stemsLength`            | Lengths of note stems                     | Number   | `25`                 |
-| `headsRadius`            | Radius of note heads                      | Number   | `5`                  |
-| `holdWidth`              | Thickness of hold notes' tails (hold bar) | Number   | `5`                  |
-| `beamsWidth`             | Thickness of note beams                   | Number   | `6`                  |
-| `beamsSpacing`           | Spacing between note beams                | Number   | `4`                  |
-| `unconnectedBeamsLength` | Length of unconnected note beams          | Number   | `20`                 |
-| `barlinesHeight`         | Height of barlines                        | Number   | `256`                |
-| `hitEffectRadius` | Radius of hit effects | Number | `32` |
-| `distanceBetweenLines` | Distance between beatmap rows | Number | `384` |
-| `notesColor`             | Color of notes                            | String   | `'#ffffff'`          |
-| `auxiliariesColor`       | Color of auxiliaries (barlines etc)       | String   | `'#4c4c4c'`          |
-| `perfectColor`           | Color of perfect hits                     | String   | `'#ffff00'`          |
-| `goodColor`              | Color of good hits                        | String   | `'#0000ff'`          |
-| `badColor`               | Color of bad hits                         | String   | `'#008000'`          |
-| `missColor`              | Color of missed hits                      | String   | `'#ff0000'`          |
-| `excessColor`            | Color of excess hits                      | String   | `'#ff0000'`          |
-| `textColor`              | Color of foreground (texts etc)           | String   | `'#ffffff'`          |
-| `backgroundColor`        | Color of background                       | String   | `'#000000'`          |
-| `graphicsWidth`          | Resolution (width)                        | Number   | `1024`               |
-| `graphicsHeight`         | Resolution (height)                       | Number   | `768`                |
-| `enableHitSound`         | Enable hit sound                          | Boolean  | `true`               |
-| `hitSound`               | Hit sound                                 | String   | `'snare_drum_1.ogg'` |
-| `hitSoundWithMusic`      | Hit sound with music instead of input     | Boolean  | `false`              |
-| `musicVolume`            | Volume of music                           | Number   | `1.0`                |
-| `hitSoundVolume`         | Volume of hit sound                       | Number   | `2.0`                |
-| `masterVolume`           | Master volume                             | Number   | `1.0`                |
-| `language` | Language | String | According to browser settings |
-| `save`                   | Save preferences in the web storage       | Boolean  | `false`              |
+| Variable                 | Meaning                                      | Type     | Default                                     |
+|--------------------------|----------------------------------------------|----------|---------------------------------------------|
+| `playRate`               | Play rate (speed of music)                   | Number   | `1.0`                                       |
+| `autoPlay`               | Auto-play                                    | Boolean  | `false`                                     |
+| `noBad`                  | No-bad mode                                  | Boolean  | `false`                                     |
+| `noExcess`               | No-excess mode                               | Boolean  | `false`                                     |
+| `judgeWindow`            | Judge window (smaller is stricter)           | Number   | `1.0`                                       |
+| `autoCompleteHolds`      | Automatically hold for hold notes            | Boolean  | `false`                                     |
+| `offset`                 | Offset (in ms)                               | Number   | `0.0`                                       |
+| `countdown`              | Show countdown before resuming               | Boolean  | `true`                                      |
+| `autoRestartGood`        | Automatically restart when failing to AP     | Boolean  | `false`                                     |
+| `autoRestartMiss`        | Automatically restart when failing to FC     | Boolean  | `false`                                     |
+| `F7Pause`                | Press <kbd>F7</kbd> to pause                 | Boolean  | `true`                                      |
+| `backtickRestart`        | Press <kbd>`</kbd> to restart                | Boolean  | `true`                                      |
+| `autoPause`              | Automatically pause when losing focus        | Boolean  | `true`                                      |
+| `recordVisual`           | Record visual preferences to replay          | Boolean  | `true`                                      |
+| `FCAPIndicator`          | Full combo / all perfect indicator           | Boolean  | `true`                                      |
+| `TPSIndicator`           | Taps per second indicator                    | Boolean  | `true`                                      |
+| `judgeLinePerformances`  | Enable ornamental judge line effects         | Boolean  | `true`                                      |
+| `flashWarningGood`       | Warn by flash the screen at good hits        | Boolean  | `false`                                     |
+| `falshWarningMiss`       | Warn by flash the screen at combo breaks     | Boolean  | `true`                                      |
+| `showInaccuracyData`     | Show inaccuracy data                         | Boolean  | `true`                                      |
+| `comboPopupInterval`     | Interval of combo popups (set 0 to disable)  | Number   | `25`                                        |
+| `fadeIn`                 | Fade-in (ratio to resolution, 0 to disable)  | Number   | `0.0`                                       |
+| `fadeOut`                | Fade-out (ratio to resolution, 0 to disable) | Number   | `0.0`                                       |
+| `reverseVoices`          | Reverse voices                               | Boolean  | `false`                                     |
+| `mirror`                 | Mirror (flip horizontally)                   | Boolean  | `false`                                     |
+| `showKeyboard`           | Show keyboard pressings                      | Boolean  | `false` on mobile devices, otherwise `true` |
+| `fontSize`               | Font size                                    | Number   | `28`                                        |
+| `textHeight`             | Height of text lines                         | Number   | `40`                                        |
+| `margin`                 | Margins                                      | Number   | `16`                                        |
+| `voicesHeight`           | Height of voices                             | Number   | `64`                                        |
+| `stemsLength`            | Lengths of note stems                        | Number   | `25`                                        |
+| `headsRadius`            | Radius of note heads                         | Number   | `5`                                         |
+| `holdWidth`              | Thickness of hold notes' tails (hold bar)    | Number   | `5`                                         |
+| `beamsWidth`             | Thickness of note beams                      | Number   | `6`                                         |
+| `beamsSpacing`           | Spacing between note beams                   | Number   | `4`                                         |
+| `unconnectedBeamsLength` | Length of unconnected note beams             | Number   | `20`                                        |
+| `barlinesHeight`         | Height of barlines                           | Number   | `256`                                       |
+| `hitEffectRadius`        | Radius of hit effects                        | Number   | `32`                                        |
+| `distanceBetweenLines`   | Distance between beatmap rows                | Number   | `384`                                       |
+| `notesColor`             | Color of notes                               | String   | `'#ffffff'`                                 |
+| `auxiliariesColor`       | Color of auxiliaries (barlines etc)          | String   | `'#4c4c4c'`                                 |
+| `perfectColor`           | Color of perfect hits                        | String   | `'#ffff00'`                                 |
+| `goodColor`              | Color of good hits                           | String   | `'#0000ff'`                                 |
+| `badColor`               | Color of bad hits                            | String   | `'#008000'`                                 |
+| `missColor`              | Color of missed hits                         | String   | `'#ff0000'`                                 |
+| `excessColor`            | Color of excess hits                         | String   | `'#ff0000'`                                 |
+| `textColor`              | Color of foreground (texts etc)              | String   | `'#ffffff'`                                 |
+| `backgroundColor`        | Color of background                          | String   | `'#000000'`                                 |
+| `graphicsWidth`          | Resolution (width)                           | Number   | `1024`                                      |
+| `graphicsHeight`         | Resolution (height)                          | Number   | `768`                                       |
+| `enableHitSound`         | Enable hit sound                             | Boolean  | `true`                                      |
+| `hitSound`               | Hit sound                                    | String   | `'snare_drum_1.ogg'`                        |
+| `hitSoundWithMusic`      | Hit sound with music instead of input        | Boolean  | `false`                                     |
+| `musicVolume`            | Volume of music                              | Number   | `1.0`                                       |
+| `hitSoundVolume`         | Volume of hit sound                          | Number   | `2.0`                                       |
+| `masterVolume`           | Master volume                                | Number   | `1.0`                                       |
+| `language`               | Language                                     | String   | According to browser settings               |
+| `save`                   | Save preferences in the web storage          | Boolean  | `false`                                     |
 
 Note that here the strings are 7-character lower-case hexadecimal notation of colors.
 To get the RGB values (in $[0, 1]$), you can use the methods `red()`, `green()`, `blue()`.
@@ -371,7 +371,7 @@ because they will be different from the actual in-game settings when the user is
 The syntax of a note is:
 
 ```text
-<noteLength><dots><multiplicity><hold><tied>
+<noteLength><dots><multiplicity><hold><big><tied>
 ```
 
 | Element        | Possible value (Regexp) | Meaning                                                                  |
@@ -380,6 +380,7 @@ The syntax of a note is:
 | `dots`         | `\.*`                   | The number of augmentation dots (as many as the number written here)     |
 | `multiplicity` | `[0-9a-z]?`             | The multiplicity (number of simultaneous notes) (default 1 if omitted)   |
 | `hold`         | `_?`                    | Whether the note is a hold (omitted underscore means a click)            |
+| `big`          | `\*?`                   | Whether the note is a big note (double weight when calculating score)    |
 | `tied`         | `~?`                    | Whether the note is tied (connected to the next note) (tilde means tied) |
 
 Here the `noteLength` and the `multiplicity` are specified by a single character representing a number.
@@ -396,7 +397,8 @@ the shortest possible note is `2**35`th note,
 and the largest multiplicity is 35.
 
 If a note's previous note is tied to this note, this note's `multiplicity` and `hold`
-are useless and are kept consistent with the previous note.
+are useless and are kept consistent with the previous note,
+and this note's `big` is forced to be `false`.
 
 ## Making notes beamed or grouping (contrametric)
 
@@ -434,6 +436,12 @@ Bar lines are created by inserting a `|` (and spaces for separating it from note
 They can appear within a beamed group of notes.
 They can also appear between two tied notes.
 It is recommended to write a bar line at the end of each voice.
+
+When calculating [score](Game-mechanics#score), measures are taken into account.
+Only the bar lines written in the first voice are effective in creating measures.
+Bar lines in other voices are fake (it mainly serves as an auxiliary for the beatmapper).
+In order for the game to calculate the number of measures correctly,
+beatmappers must add one and only one bar line in the first voice after the very last note.
 
 Every bar line will extend all across the voices in the row
 but not just the voice where it is written.
