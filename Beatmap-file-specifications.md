@@ -257,7 +257,54 @@ These expressions are mappings from $[0, 1]$ to $[0, 1]$, and the default of the
 These control sentences are ineffective if the user disabled ornamental judge line performances
 in the preferences.
 
+### `BLEND_MODE`
+
+Syntax:
+
+```text
+BLEND_MODE <blendModeName>
+```
+
+This control sentence changes the blend mode of the judge line.
+Available options for `blendModeName` are (alphabetically, case-insensitive)
+- `ADD`,
+- `ADD_NPM`,
+- `COLOR`,
+- `COLOR_BURN`,
+- `COLOR_DODGE`,
+- `DARKEN`,
+- `DIFFERENCE`,
+- `EXCLUSION`,
+- `HARD_LIGHT`,
+- `HUE`,
+- `LIGHTEN`,
+- `LUMINOSITY`,
+- `MULTIPLY`,
+- `NORMAL`,
+- `NORMAL_NPM`,
+- `OVERLAY`,
+- `SATURATION`,
+- `SCREEN`,
+- `SCREEN_NPM`,
+- `SOFT_LIGHT`.
+
+If the player enables the WebGL render in his preferences,
+only `NORMAL`, `ADD`, `MULTIPLY`, and `SCREEN` are supported,
+and the other blend modes silently act like `NORMAL`.
+
+(It seems that there lacks documents about how these blend modes work.
+You can look at [this document](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation)
+as a reference or just play around by yourself.)
+
+Default: `NORMAL`.
+
 ### `FAKE_JUDGE_LINE`
+
+Syntax:
+
+```text
+FAKE_JUDGE_LINE
+```
 
 This control sentence creates a new judge line for this row of beatmap but a fake one
 (which does not affect the gameplay but is purely ornamental).
@@ -271,10 +318,13 @@ defined previously:
 - `BLUE`,
 - `ALPHA`,
 - `WIDTH`,
-- `HEIGHT`.
+- `HEIGHT`,
+- `BLEND_MODE`.
 
 You can create more fake judge lines by using `FAKE_JUDGE_LINE` again
 after finishing defining the previous fake judge line.
+Later created fake judge lines appear on top of previouly created fake judge lines.
+Fake judge lines appear on top of the real judge line.
 
 This control sentence is not effective if the user disables ornamental judge line performances
 in the preferences.
