@@ -403,11 +403,11 @@ All variables set by the gamer in preferences can be used in the math expression
 | `enableHitSound`         | Enable hit sound                             | Boolean  | `true`                                      |
 | `hitSound`               | Hit sound                                    | String   | `'snare_drum_1.ogg'`                        |
 | `hitSoundWithMusic`      | Hit sound with music instead of input        | Boolean  | `false`                                     |
+| `countdownBeats`         | Beat by hit sound when counting down         | Boolean  | `false`                                     |
 | `musicVolume`            | Volume of music                              | Number   | `1.0`                                       |
 | `hitSoundVolume`         | Volume of hit sound                          | Number   | `2.0`                                       |
 | `masterVolume`           | Master volume                                | Number   | `1.0`                                       |
 | `language`               | Language                                     | String   | According to browser settings               |
-| `save`                   | Save preferences in the web storage          | Boolean  | `false`                                     |
 
 Note that here the strings are 7-character lower-case hexadecimal notation of colors.
 To get the RGB values (in $[0, 1]$), you can use the methods `red()`, `green()`, `blue()`.
