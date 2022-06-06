@@ -58,7 +58,7 @@ If any of the notes in a measure is hit bad while no notes in the measure are mi
 then the measure is judged as bad.
 If any of the notes in a measure is missed, then the measure is judged as miss.
 Excess hits do not affect the judge of measures.
-All measures with no hittable notes are finally perfect.
+All measures with no hittable notes are not counted and have no judge.
 
 The numbers of measures judged to be in these four categories
 are respectively shown in parentheses in the summary of your gameplay
@@ -155,7 +155,7 @@ where
 - $S\_2$ is the second part of score;
 - $p\_{\mathrm m}$ is the total number of perfect measures;
 - $g\_{\mathrm m}$ is the total number of good measures;
-- $N\_{\mathrm m}$ is the total number of measures.
+- $N\_{\mathrm m}$ is the total number of measures that have at least one note.
 
 The final score is the sum of the two parts:
 $$S=S\_1+S\_2.$$

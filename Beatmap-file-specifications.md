@@ -376,6 +376,8 @@ All variables set by the gamer in preferences can be used in the math expression
 | `reverseVoices`          | Reverse voices                               | Boolean  | `false`                                     |
 | `mirror`                 | Mirror (flip horizontally)                   | Boolean  | `false`                                     |
 | `showKeyboard`           | Show keyboard pressings                      | Boolean  | `false` on mobile devices, otherwise `true` |
+| `subtractScore`          | Subtract instead of adding score             | Boolean  | `false`                                     |
+| `numbersHUD`             | Show numbers of perfect hits etc. in-game    | Boolean  | `true`                                      |
 | `fontSize`               | Font size                                    | Number   | `28`                                        |
 | `textHeight`             | Height of text lines                         | Number   | `40`                                        |
 | `margin`                 | Margins                                      | Number   | `16`                                        |
@@ -400,6 +402,7 @@ All variables set by the gamer in preferences can be used in the math expression
 | `backgroundColor`        | Color of background                          | String   | `'#000000'`                                 |
 | `graphicsWidth`          | Resolution (width)                           | Number   | `1024`                                      |
 | `graphicsHeight`         | Resolution (height)                          | Number   | `768`                                       |
+| `useWebGL`               | Use WebGL to render (restart to take effect) | Boolean  | `true` if WebGL is supported                |
 | `enableHitSound`         | Enable hit sound                             | Boolean  | `true`                                      |
 | `hitSound`               | Hit sound                                    | String   | `'snare_drum_1.ogg'`                        |
 | `hitSoundWithMusic`      | Hit sound with music instead of input        | Boolean  | `false`                                     |
@@ -490,8 +493,6 @@ It is recommended to write a bar line at the end of each voice.
 When calculating [score](Game-mechanics#score), measures are taken into account.
 Only the bar lines written in the first voice are effective in creating measures.
 Bar lines in other voices are fake (it mainly serves as an auxiliary for the beatmapper).
-In order for the game to calculate the number of measures correctly,
-beatmappers must add one and only one bar line in the first voice after the very last note.
 
 Every bar line will extend all across the voices in the row
 but not just the voice where it is written.
