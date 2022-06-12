@@ -1,6 +1,10 @@
+# Game mechanics
+
+*中文 (中国)*: [游戏机制](game-mechanics-zh-cn)
+
 In this page, a detailed illustration of the process of gameplay is delivered.
 
-# Notes
+## Notes
 
 **Note**s are the most essential part of the gameplay.
 
@@ -42,7 +46,7 @@ Some of the notes have halo drawn around it, and they are called **big notes**.
 Big notes are hit in the same way as other notes,
 but they affect the calculation of [score](#score).
 
-# Bar lines
+## Bar lines
 
 **Bar line**s are vertical lines as auxiliaries for reading the beatmap.
 They are an imitation of bar lines from sheet music.
@@ -70,7 +74,7 @@ but not necessarily related to how the notes are completed.
 If a hold is hit good but is finally missed because it is released to early,
 it is still regarded as being hit good when considering the judge of the measure it is in.
 
-# Judge line
+## Judge line
 
 The **judge line** (or scan line) moves throughout the gameplay.
 The perfect time for the player to hit a note is exactly
@@ -79,7 +83,7 @@ when the judge line moves to a position at the center of the note.
 The speed of the judge line can change throughout the gameplay,
 and it can even run from right to the left.
 
-# Inaccuracy bar
+## Inaccuracy bar
 
 The **inaccuracy bar** is to help indicate how inaccurate the notes are hit.
 It is located at the bottom of the gameplay interface.
@@ -98,7 +102,7 @@ With an exact perfect hit, the small rule will appear at the very center of the 
 Any inaccuracy out of the bad judge interval
 will not cause a small rule to appear at the inaccuracy bar.
 
-# Combo
+## Combo
 
 The **combo** refers to the number of consecutive notes the player hits.
 It is shown in the bottom-left corner of the gameplay interface.
@@ -114,7 +118,7 @@ there are no notes corresponding to the key.
 After a gameplay is finished, an FC (full combo) note will appear next to the combo number
 if the combo has never been reset during the gameplay.
 
-# Accuracy rate
+## Accuracy rate
 
 The **accuracy rate** is set based on your performance in playing a beatmap.
 The accuracy rate is shown dynamically during the gameplay
@@ -122,7 +126,7 @@ in the bottom-right corner of the gameplay interface.
 The calculation of the accuracy rate is
 $$\mathit{AccuracyRate}=\frac{\mathit{perfect}+\mathit{good}/4-\mathit{excess}}{\mathit{perfect}+\mathit{good}+\mathit{bad}+\mathit{miss}}.$$
 
-# Score
+## Score
 
 The game will assign you a **score** based on your performance in playing a beatmap.
 The score is shown dynamically during the gameplay, just like the accuracy rate,
@@ -160,7 +164,7 @@ where
 The final score is the sum of the two parts:
 $$S=S\_1+S\_2.$$
 
-# Mark
+## Mark
 
 Once a gameplay is finished (the judge line reaches the end of the beat map),
 a mark will be calculated according to the accuracy rate

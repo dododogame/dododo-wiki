@@ -1,3 +1,7 @@
+# Beatmap file specifications
+
+*中文 (中国)*: [谱面文件规范](beatmap-spec-zh-cn)
+
 A Dododo beatmap is a `.ddd` file in plain-text format.
 The beatmap consists of two parts, the **head** and the list of **row**s.
 The two parts are separated by a single `---` line.
@@ -5,21 +9,21 @@ The two parts are separated by a single `---` line.
 The following are just some specifications.
 To read these, you are assumed to have enough knowledge about notations in sheet music.
 
-# Header
+## Header
 
 The header consists of several key-value pairs, each of which lies in a line,
 and a key is separated from its corresponding value by `: ` (a colon and a whitespace).
 
 The following items are available:
 
-## `title`
+### `title`
 
 The name of the music.
 
 This item should always be specified to a simple, short, unique, direct string
 so that users can identify the music quickly.
 
-## `musicAuthor`
+### `musicAuthor`
 
 The author of the music (the artist).
 
@@ -32,13 +36,13 @@ If multiple authors contribute in different ways to composing the music
 it is recommended to specify such information in parentheses.
 For example, `W. A. Mozart (Composer) & S. Ligoratti (Player)`.
 
-## `beatmapAuthor`
+### `beatmapAuthor`
 
 The author of the beatmap.
 
 You may use your nickname.
 
-## `difficulty`
+### `difficulty`
 
 The difficulty of the beatmap.
 
@@ -50,7 +54,7 @@ numbers greater than 15 or "???" for extremely hard beatmaps.
 Difficulty is intended to be a brief indicator on an ordinal scale
 of how hard the beatmap is to beat.
 
-## `audioUrl`
+### `audioUrl`
 
 The url of the audio file of the music.
 
@@ -58,7 +62,7 @@ If it is not specified, the user has to upload an audio file
 (if playing through uploading files),
 or the user will not hear any music when playing.
 
-## `start`
+### `start`
 
 Where to start playing the audio file, in milliseconds.
 
@@ -69,7 +73,7 @@ and it cannot be modified easily if it is provided through a url.
 Then, you may have to specify a certain portion (segment) of the audio file.
 The items `start` and [`end`](#end) offers you the function.
 
-## `end`
+### `end`
 
 Where to end playing the audio file, in milliseconds.
 
@@ -78,14 +82,14 @@ Despite that, you should always specify this item in your beatmap
 to prevent the game preloading the metadata of the audio file
 (for calculating the length) to increase its performance.
 
-## `volume`
+### `volume`
 
 The volume for playing the audio file. `1.0` means original volume.
 
 It is intended to be used when the audio file is provided through a url
 because the file cannot be modified in that case.
 
-## `offset`
+### `offset`
 
 The time (position) in the played audio at which the beatmap starts.
 May be negative or positive.
@@ -94,7 +98,7 @@ It is different from `start` in that the audio before `offset` will be played.
 Note that, if `start` and `offset` are both specified,
 audio starts playing at `start` while the beatmap starts at `start + offset`.
 
-# Rows
+## Rows
 
 Different **row**s in the beatmap are separated by an empty line.
 Do not include empty lines within a row.
@@ -104,7 +108,7 @@ Each voice consists of several **note**s and **bar line**s and is written within
 Every note is specified by its note length and multiplicity (simultaneous note in the same voice)
 together with symbols denoting whether the note is hold, tied, beamed, etc.
 
-## Control sentences
+### Control sentences
 
 Before specifying the notes in a row, some control sentences can be included for the row.
 Each control sentence includes a function name and one or more parameters,
@@ -113,7 +117,7 @@ The function name must start with a capitalized letter, and the rest letters are
 
 Here is some function names and the corresponding parameters.
 
-### `PERFECT`, `GOOD`, `BAD`
+#### `PERFECT`, `GOOD`, `BAD`
 
 Syntax:
 
@@ -128,7 +132,7 @@ The `window_radius` is NOT in milliseconds but is the ratio of the inaccuracy to
 and the total (temporal) length of the row.
 Therefore, given the same radius of judge window, judging will be stricter if the row is shorter (in time).
 
-### `BPM`
+#### `BPM`
 
 Syntax:
 
@@ -136,7 +140,7 @@ Syntax:
 BPM <beatNote1> <beatsPerMinute1>[ <position1>[ <beatNote2> <beatsPerMinute2> <position2>[ ... ]]]
 ```
 
-The `beatNote` is a note specified in the same manner in [how to write a note](#how-to-write-a-note).
+The `beatNote` is a note specified in the same manner [here](#notes).
 The `beatsPerMinute` is the number of beats per minute,
 meaning that one minute is exactly `beatsPerMinute` times as long as the beat note.
 The `position` is the position of the BPM change, specified as a rational number in $[0, 1]$,
@@ -144,7 +148,7 @@ with the start of the row being 0 and the end of the row being 1.
 The position is calculated according to notes' literal length but not their temporal length
 (e.g. a quavar in 180 BPM and one in 200 BPM has the same literal length because they are both quavars).
 
-### `MS_PER_WHOLE`
+#### `MS_PER_WHOLE`
 
 Syntax:
 
@@ -157,7 +161,7 @@ Usually this can be automatically calculated by the game according to the BPM sp
 or inherit from last row.
 However, sometimes it is necessary to specify it manually, especially when using [`TIME`](#time).
 
-### `TIME`
+#### `TIME`
 
 Syntax:
 
@@ -179,7 +183,7 @@ For example, with the expression `sqrt(x)` you can have the tempo linearly
 
 Default: `x`.
 
-### `SPACE_X`, `NOTE_X`, `HIT_X`
+#### `SPACE_X`, `NOTE_X`, `HIT_X`
 
 Syntax:
 
@@ -207,7 +211,7 @@ The default setting of `SPACE_X` is `x`.
 The default setting of `NOTE_X` is to be the same as `SPACE_X`.
 The default setting of `HIT_X` is to be the same as `NOTE_X`.
 
-### `SPACE_Y`, `WIDTH`, `HEIGHT`
+#### `SPACE_Y`, `WIDTH`, `HEIGHT`
 
 Syntax:
 
@@ -235,7 +239,7 @@ Default: `0`.
 These control sentences are ineffective if the user disabled ornamental judge line performances
 in the preferences.
 
-### `RED`, `GREEN`, `BLUE`, `ALPHA`
+#### `RED`, `GREEN`, `BLUE`, `ALPHA`
 
 Syntax:
 
@@ -257,7 +261,7 @@ These expressions are mappings from $[0, 1]$ to $[0, 1]$, and the default of the
 These control sentences are ineffective if the user disabled ornamental judge line performances
 in the preferences.
 
-### `BLEND_MODE`
+#### `BLEND_MODE`
 
 Syntax:
 
@@ -298,7 +302,7 @@ as a reference or just play around by yourself.)
 
 Default: `NORMAL`.
 
-### `FAKE_JUDGE_LINE`
+#### `FAKE_JUDGE_LINE`
 
 Syntax:
 
@@ -329,7 +333,7 @@ Fake judge lines appear on top of the real judge line.
 This control sentence is not effective if the user disables ornamental judge line performances
 in the preferences.
 
-### Math expressions
+#### Math expressions
 
 Some of the control sentences above use math expressions as parameters.
 Parsing the math expressions are powered by [math.js](https://mathjs.org/).
@@ -419,7 +423,7 @@ For example, `'#4c8cff'.red()` returns approximately `0.298`, which is `0x4c / 0
 The preferences items related to [game modifiers](Game-modifiers) and visuals are not recommended to be used
 because they will be different from the actual in-game settings when the user is replaying something.
 
-## How to write a note
+### Notes
 
 The syntax of a note is:
 
@@ -453,7 +457,7 @@ If a note's previous note is tied to this note, this note's `multiplicity` and `
 are useless and are kept consistent with the previous note,
 and this note's `big` is forced to be `false`.
 
-## Making notes beamed or grouping (contrametric)
+### Making notes beamed or grouping (contrametric)
 
 Notes can be **beam**ed (flags are connected) by enclosing them with parentheses.
 Parenthesized notes without flags will not be beamed.
@@ -483,14 +487,14 @@ c4 \tuplet 5/4 { c16 c c c c }
 c4
 }](https://upload.wikimedia.org/score/1/e/1ea3xyusyw770pzh5dli2ezzv76si3k/1ea3xyus.png)
 
-## Writing bar lines
+### Bar lines
 
 Bar lines are created by inserting a `|` (and spaces for separating it from notes) within a voice.
 They can appear within a beamed group of notes.
 They can also appear between two tied notes.
 It is recommended to write a bar line at the end of each voice.
 
-When calculating [score](Game-mechanics#score), measures are taken into account.
+When calculating [score](game-mechanics#score), measures are taken into account.
 Only the bar lines written in the first voice are effective in creating measures.
 Bar lines in other voices are fake (it mainly serves as an auxiliary for the beatmapper).
 

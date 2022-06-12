@@ -1,11 +1,27 @@
-# To gamers
+## To gamers
 
-- [How to play](https://github.com/UlyssesZh/dododo/wiki/How-to-play)
-- [Game mechanics](https://github.com/UlyssesZh/dododo/wiki/Game-mechanics)
-- [Game modifiers](https://github.com/UlyssesZh/dododo/wiki/Game-modifiers)
+- [How to play](how-to-play)
+- [Game mechanics](game-mechanics)
+- [Game modifiers](game-modifiers)
 
-# To beatmappers
+## To beatmappers
 
-- [Game mechanics](https://github.com/UlyssesZh/dododo/wiki/Game-mechanics)
-- [Beatmap file specifications](https://github.com/UlyssesZh/dododo/wiki/Beatmap-file-specifications)
-- [How to publish a beatmap](https://github.com/UlyssesZh/dododo/wiki/How-to-publish-a-beatmap)
+- [Game mechanics](game-mechanics)
+- [Beatmap file specifications](beatmap-spec)
+- [How to publish a beatmap](how-to-publish)
+
+<details>
+<summary>中文 (中国)</summary>
+
+## 致玩家
+
+- [如何玩](how-to-play-zh-cn)
+- [游戏机制](game-mechanics-zh-cn)
+- [游戏修饰器](game-modifiers-zh-cn)
+
+## 致谱师
+
+- [游戏机制](game-mechanics-zh-cn)
+- [谱面文件规范](beatmap-spec-zh-cn)
+- [如何发布谱面](how-to-publish-zh-cn)
+</details>
