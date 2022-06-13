@@ -94,7 +94,7 @@ because the file cannot be modified in that case.
 The time (position) in the played audio at which the beatmap starts.
 May be negative or positive.
 
-It is different from `start` in that the audio before `offset` will be played.
+It is different from [`start`](#start) in that the audio before `offset` will be played.
 Note that, if `start` and `offset` are both specified,
 audio starts playing at `start` while the beatmap starts at `start + offset`.
 

@@ -2,6 +2,7 @@
 
 *English (United States)*: [How to play](how-to-play)
 
+在您访问[游戏的网页](https://ulysseszh.github.io/rpg/dododo/)之后，有三种您能开始游玩的方式，每一种都以向游戏提供一张**谱面**开始。
 
 ## 通过上传文件游玩
 你需要从文件管理器中上传一个谱面文件，您还可以为音乐指定音频文件。如果没有指定音频文件，游戏将使用谱面文件最上面的 [`audioUrl`](beatmap-spec-zh-cn#audioUrl) 指定的文件。

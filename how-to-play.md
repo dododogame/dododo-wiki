@@ -1,6 +1,6 @@
 # How to play
 
-*中文 (中国)*: [如何玩](how-to-play-zh-cn)
+*中文 (中国)*: [如何游玩](how-to-play-zh-cn)
 
 After you go to [the webpage of the game](https://ulysseszh.github.io/rpg/dododo/),
 there are 3 ways in which you can start playing,

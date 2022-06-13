@@ -1,6 +1,6 @@
 # Home
 
-*English (United States)*: [Home](..)
+*English (United States)*: [Home](Home)
 
 欢迎来到 Dododo 的 wiki！
 
