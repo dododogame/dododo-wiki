@@ -70,7 +70,7 @@ Dododo 谱面是 `.ddd` 纯文本格式的文件。谱面文件由两部分组�
 
 与 [`start`](#start) 不同在于 [`start`](#start) 会将音乐裁剪。请注意，如果 [`start`](#start) 和 `offset` 都指定了，音频开始播放于 [`start`](#start) 。而谱面开始于 [`start`](#start) + `offset`。
 
->!~~(其实就是偏移(小声bb))~~
+<p hidden>~~(其实就是偏移(小声bb))~~</p>
 
 ## 行
 
