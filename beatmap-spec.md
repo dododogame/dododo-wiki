@@ -200,8 +200,8 @@ The expression is a mapping from $[0, 1]$ to $[0, 1]$.
 The `SPACE_X` sentence maps the position of the row (according to note lengths) to the spatial position.
 The position mapped to 0 is drawn at the leftmost place,
 and the position mapped to 1 is drawn at the rightmost place.
-It is not necessarily monotonically increasing (to possibly make the judge line move to the left)
-or being continuous (to possibly make the judge line jump suddenly).
+It is not necessarily monotonically increasing (to possibly make the judgement line move to the left)
+or being continuous (to possibly make the judgement line jump suddenly).
 
 `NOTE_X` and `HIT_X` do similar things to what `SPACE_X` does,
 but `NOTE_X` defines the spatial position of drawn notes
@@ -224,19 +224,19 @@ HEIGHT <expression>
 Here `<expression>` is a single-variable mathematical expression of variable `x`.
 See [math expressions](#math-expressions).
 
-These control sentences are purely for ornamental performance of the judge line
+These control sentences are purely for ornamental performance of the judgement line
 because they do not affect the (spatial and temporal) arrangement of notes.
 The expressions are mappings on $[0, 1]$, and the mapped values are lengths in unit of pixels.
 
-`SPACE_Y` is the vertical position of the judge line.
-Positive values mean to place the judge line at specified number of pixels above the default position.
+`SPACE_Y` is the vertical position of the judgement line.
+Positive values mean to place the judgement line at specified number of pixels above the default position.
 Default: `0`.
 
-`WIDTH` is the width of the judge line. Default: `1`.
+`WIDTH` is the width of the judgement line. Default: `1`.
 
-`HEIGHT` is the height of the judge line. Default: `voicesHeight` times the number of voices.
+`HEIGHT` is the height of the judgement line. Default: `voicesHeight` times the number of voices.
 
-These control sentences are ineffective if the user disabled ornamental judge line performances
+These control sentences are ineffective if the user disabled ornamental judgement line performances
 in the preferences.
 
 #### `RED`, `GREEN`, `BLUE`, `ALPHA`
@@ -253,12 +253,12 @@ ALPHA <expression>
 Here `<expression>` is a single-variable mathematical expression of variable `x`.
 See [math expressions](#math-expressions).
 
-These control sentences are also purely for ornamental performance of the judge line.
-They are used to change the color of the judge line.
+These control sentences are also purely for ornamental performance of the judgement line.
+They are used to change the color of the judgement line.
 These expressions are mappings from $[0, 1]$ to $[0, 1]$, and the default of them are all `1`
 (pure and non-transparent white).
 
-These control sentences are ineffective if the user disabled ornamental judge line performances
+These control sentences are ineffective if the user disabled ornamental judgement line performances
 in the preferences.
 
 #### `BLEND_MODE`
@@ -269,7 +269,7 @@ Syntax:
 BLEND_MODE <blendModeName>
 ```
 
-This control sentence changes the blend mode of the judge line.
+This control sentence changes the blend mode of the judgement line.
 Available options for `blendModeName` are (alphabetically, case-insensitive)
 - `ADD`,
 - `ADD_NPM`,
@@ -310,10 +310,10 @@ Syntax:
 FAKE_JUDGE_LINE
 ```
 
-This control sentence creates a new judge line for this row of beatmap but a fake one
+This control sentence creates a new judgement line for this row of beatmap but a fake one
 (which does not affect the gameplay but is purely ornamental).
 After this control sentence, you can add the following control sentences
-to define the behaviors of the new fake judge line without affecting the judge lines
+to define the behaviors of the new fake judgement line without affecting the judgement lines
 defined previously:
 - `SPACE_X`,
 - `SPACE_Y`,
@@ -325,12 +325,12 @@ defined previously:
 - `HEIGHT`,
 - `BLEND_MODE`.
 
-You can create more fake judge lines by using `FAKE_JUDGE_LINE` again
-after finishing defining the previous fake judge line.
-Later created fake judge lines appear on top of previouly created fake judge lines.
-Fake judge lines appear on top of the real judge line.
+You can create more fake judgement lines by using `FAKE_JUDGE_LINE` again
+after finishing defining the previous fake judgement line.
+Later created fake judgement lines appear on top of previouly created fake judgement lines.
+Fake judgement lines appear on top of the real judgement line.
 
-This control sentence is not effective if the user disables ornamental judge line performances
+This control sentence is not effective if the user disables ornamental judgement line performances
 in the preferences.
 
 #### Math expressions
@@ -370,7 +370,7 @@ All variables set by the gamer in preferences can be used in the math expression
 | `recordVisual`           | Record visual preferences to replay          | Boolean  | `true`                                      |
 | `FCAPIndicator`          | Full combo / all perfect indicator           | Boolean  | `true`                                      |
 | `TPSIndicator`           | Taps per second indicator                    | Boolean  | `true`                                      |
-| `judgeLinePerformances`  | Enable ornamental judge line effects         | Boolean  | `true`                                      |
+| `judgeLinePerformances`  | Enable ornamental judgement line effects         | Boolean  | `true`                                      |
 | `flashWarningGood`       | Warn by flash the screen at good hits        | Boolean  | `false`                                     |
 | `falshWarningMiss`       | Warn by flash the screen at combo breaks     | Boolean  | `true`                                      |
 | `showInaccuracyData`     | Show inaccuracy data                         | Boolean  | `true`                                      |

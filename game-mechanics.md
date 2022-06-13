@@ -12,7 +12,7 @@ There are two types of notes in Dododo, **click**s and **hold**s.
 
 To hit a note, you should hit a key on the keyboard (on a device with a keyboard)
 or touch the screen (on a device with a touchable screen)
-within the time at which it should be hit (when the [judge line](#judge-line) meets the note)
+within the time at which it should be hit (when the [judgement line](#judge-line) meets the note)
 plus or minus the inaccuracy tolerance (judge window).
 The available keys on the keyboard that can hit notes are
 - All keys corresponding to ASCII characters,
@@ -74,13 +74,13 @@ but not necessarily related to how the notes are completed.
 If a hold is hit good but is finally missed because it is released to early,
 it is still regarded as being hit good when considering the judge of the measure it is in.
 
-## Judge line
+## Judgement line
 
-The **judge line** (or scan line) moves throughout the gameplay.
+The **judgement line** (or scan line) moves throughout the gameplay.
 The perfect time for the player to hit a note is exactly
-when the judge line moves to a position at the center of the note.
+when the judgement line moves to a position at the center of the note.
 
-The speed of the judge line can change throughout the gameplay,
+The speed of the judgement line can change throughout the gameplay,
 and it can even run from right to the left.
 
 ## Inaccuracy bar
@@ -166,7 +166,7 @@ $$S=S\_1+S\_2.$$
 
 ## Mark
 
-Once a gameplay is finished (the judge line reaches the end of the beat map),
+Once a gameplay is finished (the judgement line reaches the end of the beat map),
 a mark will be calculated according to the accuracy rate
 and shown in the top-middle of the gameplay interface.
 The mark is a letter. The mark scale is
