@@ -12,7 +12,7 @@ You need to upload a beatmap from your file system.
 
 You can also specify an audio file for the music.
 If there is no audio file specified, the game will use that specified by
-[`audioUrl`](how-to-beatmap#audiourl) in the [head](how-to-beatmap#head) of the beatmap.
+[`audioUrl`](beatmap-spec#audiourl) in the [head](how-to-beatmap#head) of the beatmap.
 
 In the [Discord channel](https://discord.com/channels/977458815794552842/977481204536311838),
 you can find many beatmap files
