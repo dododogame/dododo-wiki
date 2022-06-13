@@ -2,7 +2,9 @@
 
 *English (United States)*: [Beatmap file specifications](beatmap-spec)
 
-**待翻译**
+Dododo 谱面是`.ddd`纯文本格式的文件。铺面文件由两部分组成，**文件头**和**行**的列表。这两个部分由`---`分隔。
+
+以下只是一些规则。在阅读以下内容时，我们默认您已经对乐谱及乐谱的符号有一定的了解。
 
 ## 文件头
 
