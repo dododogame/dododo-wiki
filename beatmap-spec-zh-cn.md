@@ -20,6 +20,10 @@ Dododo 谱面是 `.ddd` 纯文本格式的文件。铺面文件由两部分组�
 
 ### `musicAuthor`
 
+音乐的作者（艺术家）。
+
+为简洁起见，作者的名字和中间名可以缩写为首字母。如果有多个作者，建议全部写出并用 `&` 连接名称。如果多个作者以不同的方式创作音乐（作曲家、作词家、演奏者等），建议在括号中写出此类信息。例如 W. A. Mozart (Composer) & S. Ligoratti (Player)。
+
 ### `beatmapAuthor`
 
 ### `difficulty`
