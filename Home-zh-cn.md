@@ -8,7 +8,7 @@
 
 ## 致玩家
 
-- [如何玩](how-to-play-zh-cn)
+- [如何游玩](how-to-play-zh-cn)
 - [游戏机制](game-mechanics-zh-cn)
 - [游戏修饰器](game-modifiers-zh-cn)
 
