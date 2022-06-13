@@ -10,9 +10,9 @@ Dododo 中有两种类型的音符，click 和 hold。
 - 对应 ASCII 字符的所有键，
 - 数字键盘中的所有键（包括<kbd>NumLock</kbd>），
 - 空格键： <kbd>Tab</kbd>， <kbd>Space Bar</kbd>， <kbd>Enter</kbd>，
-- 定位键: 四个方向键, <kbd>Home</kbd>, <kbd>End</kbd>, <kbd>PageUp</kbd>, <kbd>PageDown</kbd>,
-- 编辑键: <kbd>Insert</kbd>, <kbd>Delete</kbd>, <kbd>Backspace</kbd>, <kbd>Clear</kbd>,
-- 大/小写键: <kbd>CapsLock</kbd>, <kbd>Shift</kbd>.
+- 定位键: 四个方向键，<kbd>Home</kbd>， <kbd>End</kbd>， <kbd>PageUp</kbd>， <kbd>PageDown</kbd>，
+- 编辑键: <kbd>Insert</kbd>， <kbd>Delete</kbd>， <kbd>Backspace</kbd>， <kbd>Clear</kbd>，
+- 大/小写键: <kbd>CapsLock</kbd>， <kbd>Shift</kbd>。
 
 ## 小节线
 
