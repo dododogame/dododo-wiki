@@ -13,7 +13,7 @@ Here is a list of all the modifiers:
 | [`autoPlay`](#autoPlay)      | Auto-play          | Auto-play      | Boolean  | `false`              |
 | [`noBad`](#noBad)     | No-bad mode        | No-bad      | Boolean  | `false`              |
 | [`noExcess`](#noExcess) | No-excess mode | No-excess | Boolean | `false` |
-| [`judgeWindow`](#judgeWindow) | Judge window (smaller is stricter) | %fx judge | Number | `1.0` |
+| [`judgeWindow`](#judgeWindow) | Judgement window (smaller is stricter) | %fx judge | Number | `1.0` |
 | [`autoCompleteHolds`](#autoCompleteHolds) | Automatically hold for hold notes | Auto-hold | Boolean | `false` |
 
 Any values of these preferences items different from default values are regarded as
@@ -25,7 +25,7 @@ The percent symbol (`%`) in the above table is for [printf format](https://en.wi
 This modifier adjusts the speed of the music to a certain multiple of the original speed.
 The pitch of the music will change correspondingly.
 
-Note that judge windows are divided by the play rate value
+Note that judgement windows are divided by the play rate value
 because they are proportional to the time duration of each row of the beatmap,
 which is shorter when the play rate is higher.
 
@@ -37,7 +37,7 @@ It does not guarantee an all-perfect play if there are impossible notes in the b
 ## `noBad`
 
 This modifier makes your gameplay have no bad hits.
-It does not affect the judge windows for perfect hits and good hits.
+It does not affect the judgement windows for perfect hits and good hits.
 Technically, it is equivalent to setting the bad window to be the same as the good window.
 
 This modifier does not necessarily decrease the difficulty of the gameplay
@@ -52,7 +52,7 @@ turning off all in-game animations related to excess hits.
 ## `judgeWindow`
 
 This modifier allows you to make the judge stricter or looser.
-The radii of judge windows are multiplied by the ratio specified by this modifier.
+The radii of judgement windows are multiplied by the ratio specified by this modifier.
 
 ## `autoCompleteHolds`
 

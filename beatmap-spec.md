@@ -127,10 +127,10 @@ GOOD <window_radius>
 BAD <window_radius>
 ```
 
-These control sentences accept one parameter, indicating the radius of the judge window.
+These control sentences accept one parameter, indicating the radius of the judgement window.
 The `window_radius` is NOT in milliseconds but is the ratio of the inaccuracy tolerance for a perfect / good / bad judge
 and the total (temporal) length of the row.
-Therefore, given the same radius of judge window, judging will be stricter if the row is shorter (in time).
+Therefore, given the same radius of judgement window, judging will be stricter if the row is shorter (in time).
 
 #### `BPM`
 
@@ -358,7 +358,7 @@ All variables set by the gamer in preferences can be used in the math expression
 | `autoPlay`               | Auto-play                                    | Boolean  | `false`                                     |
 | `noBad`                  | No-bad mode                                  | Boolean  | `false`                                     |
 | `noExcess`               | No-excess mode                               | Boolean  | `false`                                     |
-| `judgeWindow`            | Judge window (smaller is stricter)           | Number   | `1.0`                                       |
+| `judgeWindow`            | Judgement window (smaller is stricter)           | Number   | `1.0`                                       |
 | `autoCompleteHolds`      | Automatically hold for hold notes            | Boolean  | `false`                                     |
 | `offset`                 | Offset (in ms)                               | Number   | `0.0`                                       |
 | `countdown`              | Show countdown before resuming               | Boolean  | `true`                                      |
