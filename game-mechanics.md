@@ -12,7 +12,7 @@ There are two types of notes in Dododo, **click**s and **hold**s.
 
 To hit a note, you should hit a key on the keyboard (on a device with a keyboard)
 or touch the screen (on a device with a touchable screen)
-within the time at which it should be hit (when the [judgement line](#judge-line) meets the note)
+within the time at which it should be hit (when the [judgement line](#judgement-line) meets the note)
 plus or minus the inaccuracy tolerance (judgement window).
 The available keys on the keyboard that can hit notes are
 - All keys corresponding to ASCII characters,

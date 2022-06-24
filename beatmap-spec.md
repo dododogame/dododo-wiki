@@ -134,6 +134,8 @@ Therefore, given the same radius of judgement window, judging will be stricter i
 
 #### `BPM`
 
+(Also alised as `BEATS_PER_MINUTE`.)
+
 Syntax:
 
 ```text
@@ -149,6 +151,8 @@ The position is calculated according to notes' literal length but not their temp
 (e.g. a quavar in 180 BPM and one in 200 BPM has the same literal length because they are both quavars).
 
 #### `MS_PER_WHOLE`
+
+(Also alised as `MILLISECONDS_PER_WHOLE`.)
 
 Syntax:
 
@@ -183,12 +187,12 @@ For example, with the expression `sqrt(x)` you can have the tempo linearly
 
 Default: `x`.
 
-#### `SPACE_X`, `NOTE_X`, `HIT_X`
+#### `JUDGEMENT_LINE_X`, `NOTE_X`, `HIT_X`
 
 Syntax:
 
 ```text
-SPACE_X <expression>
+JUDGEMENT_LINE_X <expression>
 NOTE_X <expression>
 HIT_X <expression>
 ```
@@ -197,7 +201,7 @@ Here `<expression>` is a single-variable mathematical expression of variable `x`
 See [math expressions](#math-expressions).
 
 The expression is a mapping from $[0, 1]$ to $[0, 1]$.
-The `SPACE_X` sentence maps the position of the row (according to note lengths) to the spatial position.
+The `JUDGEMENT_LINE_X` sentence maps the position of the row (according to note lengths) to the spatial position.
 The position mapped to 0 is drawn at the leftmost place,
 and the position mapped to 1 is drawn at the rightmost place.
 It is not necessarily monotonically increasing (to possibly make the judgement line move to the left)
@@ -207,18 +211,18 @@ or being continuous (to possibly make the judgement line jump suddenly).
 but `NOTE_X` defines the spatial position of drawn notes
 while `HIT_X` defines the spatial position of the hit effects.
 
-The default setting of `SPACE_X` is `x`.
+The default setting of `JUDGEMENT_LINE_X` is `x`.
 The default setting of `NOTE_X` is to be the same as `SPACE_X`.
 The default setting of `HIT_X` is to be the same as `NOTE_X`.
 
-#### `SPACE_Y`, `WIDTH`, `HEIGHT`
+#### `JUDGEMENT_LINE_Y`, `JUDGEMENT_LINE_WIDTH`, `JUDGEMENT_LINE_HEIGHT`
 
 Syntax:
 
 ```text
-SPACE_Y <expression>
-WIDTH <expression>
-HEIGHT <expression>
+JUDGEMENT_LINE_Y <expression>
+JUDGEMENT_LINE_WIDTH <expression>
+JUDGEMENT_LINE_HEIGHT <expression>
 ```
 
 Here `<expression>` is a single-variable mathematical expression of variable `x`.
@@ -228,26 +232,28 @@ These control sentences are purely for ornamental performance of the judgement l
 because they do not affect the (spatial and temporal) arrangement of notes.
 The expressions are mappings on $[0, 1]$, and the mapped values are lengths in unit of pixels.
 
-`SPACE_Y` is the vertical position of the judgement line.
+`JUDGEMENT_LINE_Y` is the vertical position of the judgement line.
 Positive values mean to place the judgement line at specified number of pixels above the default position.
 Default: `0`.
 
-`WIDTH` is the width of the judgement line. Default: `1`.
+`JUDGEMENT_LINE_WIDTH` is the width of the judgement line. Default: `1`.
 
-`HEIGHT` is the height of the judgement line. Default: `voicesHeight` times the number of voices.
+`JUDGEMENT_LINE_HEIGHT` is the height of the judgement line. Default: `voicesHeight` times the number of voices.
 
 These control sentences are ineffective if the user disabled ornamental judgement line performances
 in the preferences.
 
-#### `RED`, `GREEN`, `BLUE`, `ALPHA`
+#### `JUDGEMENT_LINE_RED`, `JUDGEMENT_LINE_GREEN`, `JUDGEMENT_LINE_BLUE`, `JUDGEMENT_LINE_ALPHA`
+
+(`JUDGEMENT_LINE_ALPHA` is also alised as `JUDGEMENT_LINE_OPACITY`.)
 
 Syntax:
 
 ```text
-RED <expression>
-GREEN <expression>
-BLUE <expression>
-ALPHA <expression>
+JUDGEMENT_LINE_RED <expression>
+JUDGEMENT_LINE_GREEN <expression>
+JUDGEMENT_LINE_BLUE <expression>
+JUDGEMENT_LINE_ALPHA <expression>
 ```
 
 Here `<expression>` is a single-variable mathematical expression of variable `x`.
@@ -261,12 +267,12 @@ These expressions are mappings from $[0, 1]$ to $[0, 1]$, and the default of the
 These control sentences are ineffective if the user disabled ornamental judgement line performances
 in the preferences.
 
-#### `BLEND_MODE`
+#### `JUDGEMENT_LINE_BLEND_MODE`
 
 Syntax:
 
 ```text
-BLEND_MODE <blendModeName>
+JUDGEMENT_LINE_BLEND_MODE <blendModeName>
 ```
 
 This control sentence changes the blend mode of the judgement line.
@@ -302,12 +308,12 @@ as a reference or just play around by yourself.)
 
 Default: `NORMAL`.
 
-#### `FAKE_JUDGE_LINE`
+#### `FAKE_JUDGEMENT_LINE`
 
 Syntax:
 
 ```text
-FAKE_JUDGE_LINE
+FAKE_JUDGEMENT_LINE
 ```
 
 This control sentence creates a new judgement line for this row of beatmap but a fake one
@@ -315,17 +321,17 @@ This control sentence creates a new judgement line for this row of beatmap but a
 After this control sentence, you can add the following control sentences
 to define the behaviors of the new fake judgement line without affecting the judgement lines
 defined previously:
-- `SPACE_X`,
-- `SPACE_Y`,
-- `RED`,
-- `GREEN`,
-- `BLUE`,
-- `ALPHA`,
-- `WIDTH`,
-- `HEIGHT`,
-- `BLEND_MODE`.
+- `JUDGEMENT_LINE_X`,
+- `JUDGEMENT_LINE_Y`,
+- `JUDGEMENT_LINE_RED`,
+- `JUDGEMENT_LINE_GREEN`,
+- `JUDGEMENT_LINE_BLUE`,
+- `JUDGEMENT_LINE_ALPHA`,
+- `JUDGEMENT_LINE_WIDTH`,
+- `JUDGEMENT_LINE_HEIGHT`,
+- `JUDGEMENT_LINE_BLEND_MODE`.
 
-You can create more fake judgement lines by using `FAKE_JUDGE_LINE` again
+You can create more fake judgement lines by using `FAKE_JUDGEMENT_LINE` again
 after finishing defining the previous fake judgement line.
 Later created fake judgement lines appear on top of previouly created fake judgement lines.
 Fake judgement lines appear on top of the real judgement line.
@@ -333,13 +339,63 @@ Fake judgement lines appear on top of the real judgement line.
 This control sentence is not effective if the user disables ornamental judgement line performances
 in the preferences.
 
-#### Math expressions
+#### `LET`, `DEF`, `VAR`, `FUN`
+
+(`DEF` is also aliased as `DEFINE`;
+`VAR` is also aliased as `VARIABLE`;
+`FUN` is also aliased as `FUNCTION`.)
+
+Syntax:
+
+```
+LET <identifier> <expression>
+DEF <identifier> <parameters> <expression>
+VAR <identifier> <expressionWithoutX>
+FUN <identifier> <parameters> <expressionWithoutX>
+```
+
+The four control sentences define custom variables or function for use in math expressions.
+They are similar but different.
+To illustrate, see the five examples, which have the same effect:
+```
+LET y x^2
+TIME (x+y)/2
+```
+```
+DEF y m x^m
+TIME (x+y(m))/2
+```
+```
+VAR m 2
+TIME (x+x^m)/2
+```
+```
+FUN f x,m x^m
+TIME (x+f(x,m))/2
+```
+```
+TIME (x+x^2)/2
+```
+
+#### `PROCEDURE`
+
+
+
+#### Expressions
 
 Some of the control sentences above use math expressions as parameters.
 Parsing the math expressions are powered by [math.js](https://mathjs.org/).
 
-In these expressions, there should be only one variable `x`, denoting the position in the row.
+There are two kinds of expressions: **expressions (with x)** and **expressions without x**.
+When we say "expression" without indicating whether it is with x or without x,
+it is an expression with x.
+
+In expressions with x, there should be only one independent variable `x`, denoting the position in the row.
 The position is measured according to notes' literal length but not their temporal length.
+
+In expressions without x, there should be no independent variables.
+Variables or functions defined by `LET` and `DEF` cannot appear in expressions without x
+because they are dependent to x.
 
 There is an `if` function that can be used to help express piecewise functions.
 Its syntax is
@@ -350,7 +406,8 @@ It is the same as
 ```text
 condition1 ? value1 : condition2 ? value2 : ... : elseValue
 ```
-All variables set by the gamer in preferences can be used in the math expressions:
+All variables set by the gamer in preferences can be used in the math expressions
+(they are also independent of x, so they can also be used in expressions without x):
 
 | Variable                 | Meaning                                      | Type     | Default                                     |
 |--------------------------|----------------------------------------------|----------|---------------------------------------------|
@@ -370,7 +427,7 @@ All variables set by the gamer in preferences can be used in the math expression
 | `recordVisual`           | Record visual preferences to replay          | Boolean  | `true`                                      |
 | `FCAPIndicator`          | Full combo / all perfect indicator           | Boolean  | `true`                                      |
 | `TPSIndicator`           | Taps per second indicator                    | Boolean  | `true`                                      |
-| `judgeLinePerformances`  | Enable ornamental judgement line effects         | Boolean  | `true`                                      |
+| `judgementLinePerformances`  | Enable ornamental judgement line effects         | Boolean  | `true`                                      |
 | `flashWarningGood`       | Warn by flash the screen at good hits        | Boolean  | `false`                                     |
 | `falshWarningMiss`       | Warn by flash the screen at combo breaks     | Boolean  | `true`                                      |
 | `showInaccuracyData`     | Show inaccuracy data                         | Boolean  | `true`                                      |
@@ -392,9 +449,9 @@ All variables set by the gamer in preferences can be used in the math expression
 | `beamsWidth`             | Thickness of note beams                      | Number   | `6`                                         |
 | `beamsSpacing`           | Spacing between note beams                   | Number   | `4`                                         |
 | `unconnectedBeamsLength` | Length of unconnected note beams             | Number   | `20`                                        |
-| `barlinesHeight`         | Height of barlines                           | Number   | `256`                                       |
+| `barLinesHeight`         | Height of bar lines                           | Number   | `256`                                       |
 | `hitEffectRadius`        | Radius of hit effects                        | Number   | `32`                                        |
-| `distanceBetweenLines`   | Distance between beatmap rows                | Number   | `384`                                       |
+| `distanceBetweenRows`   | Distance between beatmap rows                | Number   | `384`                                       |
 | `notesColor`             | Color of notes                               | String   | `'#ffffff'`                                 |
 | `auxiliariesColor`       | Color of auxiliaries (barlines etc)          | String   | `'#4c4c4c'`                                 |
 | `perfectColor`           | Color of perfect hits                        | String   | `'#ffff00'`                                 |
