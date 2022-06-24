@@ -82,8 +82,8 @@
 
 ### hit note
 
-(It is often referred to as "note" in other rhythm games,
-but it means [another concept](#note) in Dododo.)
+It is often referred to as "note" in other rhythm games,
+but it means [another concept](#note) in Dododo.
 
 #### click
 
@@ -99,6 +99,8 @@ but it means [another concept](#note) in Dododo.)
 
 ### inaccuracy bar
 
+### visual
+
 ## Related to gameplay
 
 ### multiplicity
@@ -106,6 +108,8 @@ but it means [another concept](#note) in Dododo.)
 (related to: [chord](#chord))
 
 ### judgement
+
+#### judgement window
 
 #### perfect
 
@@ -134,3 +138,37 @@ but it means [another concept](#note) in Dododo.)
 ### score
 
 ### mark
+
+### modifier
+
+## Related to beatmapping
+
+### frontmatter
+
+### rows part
+
+### comment
+
+### control sentence
+
+#### keyword
+
+#### parameter
+
+#### alias
+
+### expression
+
+#### expression with x
+
+#### expression without x
+
+### variable
+
+### function
+
+### block
+
+### control flow
+
+### procedure
