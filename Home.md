@@ -20,6 +20,7 @@ To join our community, join our [Discord server](https://discord.gg/yYdMw5hm2K).
 
 ## To beatmappers
 
+- [Beatmapping from scratch](beatmapping-from-scratch)
 - [Beatmap file specifications](beatmap-spec)
 - [Control sentences](control-sentences)
 - [Built-in identifiers](built-in-identifiers)

@@ -18,6 +18,7 @@
 
 ## 致谱师
 
+- [从零开始写谱](beatmapping-from-scratch-zh-cn)
 - [谱面文件规范](beatmap-spec-zh-cn)
 - [控制语句](control-sentences-zh-cn)
 - [预设标识符](built-in-identifiers-zh-cn)
