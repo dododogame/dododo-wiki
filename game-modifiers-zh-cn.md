@@ -2,7 +2,7 @@
 
 *English (United States)*: [Game modifiers](game-modifiers)
 
-**待翻译**
+*待翻译*
 
 ## `playRate`
 

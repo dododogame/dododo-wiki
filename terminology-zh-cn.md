@@ -2,4 +2,4 @@
 
 *English (United States)*: [Terminology](terminology)
 
-**待翻译**
+*待翻译*
