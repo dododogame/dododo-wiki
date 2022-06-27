@@ -11,6 +11,8 @@
 ## To beatmappers
 
 - [Beatmap file specifications](beatmap-spec)
+- [Control sentences](control-sentences)
+- [Built-in identifiers](built-in-identifiers)
 - [How to publish a beatmap](how-to-publish)
 
 <details>
@@ -29,5 +31,8 @@
 ## 致谱师
 
 - [谱面文件规范](beatmap-spec-zh-cn)
+- [控制语句](control-sentences-zh-cn)
+- [预设标识符](built-in-identifiers-zh-cn)
 - [如何发布谱面](how-to-publish-zh-cn)
+
 </details>

@@ -8,14 +8,19 @@ Welcome to the Dododo wiki!
 You can play the game on [the website](https://ulysseszh.github.io/rpg/dododo/).
 To join our community, join our [Discord server](https://discord.gg/yYdMw5hm2K).
 
+## General
+
+- [Game mechanics](game-mechanics)
+- [Terminology](terminology)
+
 ## To gamers
 
 - [How to play](how-to-play)
-- [Game mechanics](game-mechanics)
 - [Game modifiers](game-modifiers)
 
 ## To beatmappers
 
-- [Game mechanics](game-mechanics)
 - [Beatmap file specifications](beatmap-spec)
+- [Control sentences](control-sentences)
+- [Built-in identifiers](built-in-identifiers)
 - [How to publish a beatmap](how-to-publish)
