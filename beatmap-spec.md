@@ -333,53 +333,375 @@ defined previously:
 
 You can create more fake judgement lines by using `FAKE_JUDGEMENT_LINE` again
 after finishing defining the previous fake judgement line.
-Later created fake judgement lines appear on top of previouly created fake judgement lines.
+Later created fake judgement lines appear on top of previously created fake judgement lines.
 Fake judgement lines appear on top of the real judgement line.
 
 This control sentence is not effective if the user disables ornamental judgement line performances
 in the preferences.
 
-#### `LET`, `DEF`, `VAR`, `FUN`
-
-(`DEF` is also aliased as `DEFINE`;
-`VAR` is also aliased as `VARIABLE`;
-`FUN` is also aliased as `FUNCTION`.)
+#### `LET`
 
 Syntax:
-
 ```
 LET <identifier> <expression>
-DEF <identifier> <parameters> <expression>
-VAR <identifier> <expressionWithoutX>
-FUN <identifier> <parameters> <expressionWithoutX>
 ```
 
-The four control sentences define custom variables or function for use in math expressions.
-They are similar but different.
-To illustrate, see the five examples, which have the same effect:
+`LET` can define a variable in the scope with x.
+After a variable is defined by `LET`, it can be referred to in any expression with x,
+but it cannot be referred to in any expression without x.
+The `identifier` must consist only of digits, letters, or underscores, and not start with a digit (in regexp: `[a-zA-Z_]\w*`).
+The rule also applies to the identifier specified to variables defined by [`DEF`](#DEF), [`VAR`](#VAR), and [`FUN`](#FUN).
+
+Example 1:
 ```
 LET y x^2
 TIME (x+y)/2
 ```
-```
-DEF y m x^m
-TIME (x+y(m))/2
-```
-```
-VAR m 2
-TIME (x+x^m)/2
-```
-```
-FUN f x,m x^m
-TIME (x+f(x,m))/2
-```
+In this example, a variable with x `y` is defined using `LET`.
+It is then referred to in the `TIME` control sentence.
+This is equivalent to
 ```
 TIME (x+x^2)/2
 ```
 
+Example 2:
+```
+LET y x^2
+TIME (x+$y)/2
+JUDGEMENT_LINE_X (x+y)/2
+LET y x^3
+```
+In this example, the variable `y` is value-lockedly referred to in the `TIME` control sentence
+(because it is referred to as `$y` with the dollar symbol).
+If the reference of a variable is value-locked, it will not be affected if the variable is overridden in the future.
+However, the variable `y` is normally referred to in the `JUDGEMENT_LINE_X` control sentence.
+The codes are equivalent to
+```
+TIME (x+x^2)/2
+JUDGEMENT_LINE_X (x+x^3)/2
+```
+
+#### `DEF`
+
+(Also aliased as `DEFINE`.)
+
+Syntax:
+```
+DEF <identifier> <parameters> <expression>
+```
+
+`DEF` defines a function in the scope with x.
+`parameters` is a list of parameter names seperated by commas (`,` without whitespace).
+In `expression`, the parameters can be referred to as independent variables, as well as `x`.
+
+A function defined by `DEF` can be invoked in any expression with x.
+When a function defined by `DEF` is invoked, parentheses should be used to specify the value of parameters.
+Functions defined by `DEF` cannot be referred to in expressions without x.
+
+The parameters list cannot be empty.
+Actually, if the parameters list is empty, it should be defined using [`LET`](#LET) instead of `DEF`.
+
+Example 1:
+```
+DEF f m x^m
+TIME (x+f(2))/2
+```
+In this example, the function `f` is defined using `DEF`,
+and it has one parameter called `m`.
+Then, the function is referred to and invoked in the `TIME` control sentence,
+with the parameter `m` having value `2`.
+The codes are equivalent to
+```
+TIME (x+x^2)/2
+```
+
+Example 2:
+```
+DEF f m (x + x^m) / 2
+TIME $f(2)
+JUDGEMENT_LINE_X f(3)
+DEF f m log(1 + m x) / log(1+m)
+```
+In this example, the function `f` is value-lockedly referred to in the `TIME` control sentence,
+while it is referred to normally in the `JUDGEMENT_LINE_X` control sentence.
+The codes are equivalent to
+```
+TIME (x + x^2) / 2
+JUDGEMENT_LINE_X log(1 + 3 x) / log(4)
+```
+
+#### `VAR`
+
+(Also aliased as `VARIABLE`.)
+
+Syntax:
+```
+VAR <identifier> <expressionWithoutX>
+```
+
+`VAR` sentences define variables in the scope without x.
+Such variables can be referred to in both expressions with x and expressions without x.
+
+Example 1:
+```
+VAR a 2003
+VAR b a - 895
+VAR a 520
+
+# outputs 520:
+DEBUG_LOG a
+
+# outputs 1108:
+DEBUG_LOG b
+```
+
+Example 2:
+```
+VAR m 2
+TIME (x+x^m)/2
+JUDGEMENT_LINE_X (x+x^$m)/2
+VAR m 4
+```
+This example illustrates that variables defined by `VAR` can be referred to in a value-locked way.
+It is equivalent to
+```
+TIME (x+x^4)/2
+JUDGEMENT_LINE_X (x+x^2)/2
+```
+
+#### `FUN`'
+
+(Also aliased as `FUNCTION`.)
+
+Syntax:
+```
+FUN <identifier> <parameters> <expressionWithoutX>
+```
+
+`FUN` defines functions in the scope without x.
+`parameters` is a list of parameters separated by commas (`,` without whitespace).
+
+The parameters list cannot be empty.
+However, functions with no parameters cannot be defined by [`VAR`](#VAR)
+(this case is different from how [`DEF`](#DEF) and [`LET`](#LET) can replace each other).
+Technically, you cannot define a function with no parameters in the scope without x,
+but a workaround is to just ignore what you have put in the parameters list (see example 2).
+
+Example 1:
+```
+FUN pythagoras a,b sqrt(a^2+b^2)
+
+# outputs 5:
+DEBUG_LOG pythagoras(3,4)
+```
+
+Example 2:
+```
+VAR m 1
+FUN f _ $m
+FUN g _ m
+VAR m 2
+
+# outputs 1:
+DEBUG_LOG f()
+
+# outputs 2:
+DEBUG_LOG g()
+```
+
 #### `PROCEDURE`
 
+Syntax:
+```
+PROCEDURE <keyword>
+	<block>
+END
+```
 
+`PROCEDURE` enable you to define your own control sentences (without parameters).
+`keyword` specifies the keyword of the new control sentence,
+which is case-sensitive and must consist of digits, letters, and underscores and start with capitalized letters or an underscore
+(regexp: `[A-Z_]\w*`).
+`block` contains a sequence of control sentences which will be executed when the newly-defined control sentence is invoked.
+
+If a control sentence with keyword being the same as the `keyword` here,
+the old one will be overridden by the newly-defined one.
+The aliases of the old one will not be affected (see [`ALIAS`](#ALIAS)).
+
+Example:
+```
+# This control sentence can calculate the factorial of variable `input` and print it
+PROCEDURE PrintFactorialOfInput
+	VAR result 1
+	VAR i 1
+	WHILE i <= input
+		VAR result result * i
+		VAR i i + 1
+	END
+	DEBUG_LOG result
+END
+
+VAR input 5
+
+# outputs 120:
+PrintFactorialOfInput
+```
+
+#### `UNPROCEDURE`
+
+Syntax:
+```
+UNPROCEDURE <keyword> [<keyword2> [...]]
+```
+
+`UNPROCEDURE` can undefine control sentences specified by `keyword` etc.
+If the newly-undefined control sentence has any aliases,
+the aliases will not be affected (see [`ALIAS`](#ALIAS)).
+
+#### `ALIAS`
+
+Syntax:
+```
+ALIAS <newKeyword> [<newKeyword2> [...]] <oldKeyword>
+```
+
+`ALIAS` defines new control sentences which have the same effect as the control sentence specified by `oldKeyword`,
+but with different keyword specified by `newKeyword` etc.
+
+Example 1:
+```
+ALIAS DL DEBUG_LOG
+UNPROCEDURE DEBUG_LOG
+
+# outputs "Hello, world!" (without quotes):
+DL 'Hello, world!'
+```
+
+Example 2:
+```
+PROCEDURE SomeProcedure
+	DEBUG_LOG 'old'
+END
+ALIAS OldSomeProcedure SomeProcedure
+PROCEDURE SomeProcedure
+	OldSomeProcedure
+	DEBUG_LOG 'new'
+END
+
+# outputs "old", and then outputs "new" (without quotes):
+SomeProcedure
+```
+
+#### `IF`
+
+Syntax:
+```
+IF <expressionWithoutX>
+	<block>
+[ELSE_IF <expressionWithoutX2>
+	<block2>]
+[...]
+[ELSE
+	<blockN>]
+END
+```
+
+`IF` helps you build up control flow of control sentences.
+
+#### `WHILE`
+
+Syntax:
+```
+WHILE <expressionWithoutX>
+	<block>
+END
+```
+
+`WHILE` helps you build up control flow of control sentences.
+Control sentences in `block` will be executed cyclically while `expressionWithoutX` evaluates true.
+
+In `block`, [`BREAK`](#BREAK) can be used to jump out of the cycle.
+
+Example:
+```
+# This control sentence can calculate the factorial of variable `input` and print it
+PROCEDURE PrintFactorialOfInput
+	VAR result 1
+	VAR i 1
+	WHILE i <= input
+		VAR result result * i
+		VAR i i + 1
+	END
+	DEBUG_LOG result
+END
+
+VAR input 5
+
+# outputs 120:
+PrintFactorialOfInput
+```
+#### `BREAK`
+
+Syntax:
+```
+BREAK[ <layer>]
+```
+
+`BREAK` makes the execution of control sentences jump out of cycles.
+It can only be used inside blocks of cycles like `WHILE`.
+
+`layer` is a non-negative integer.
+It specifies how many layers out of which this `BREAK` control sentence jumps.
+If `layer` is not specified, the default value is `0`, which means jump out of one layer of cycle.
+
+Example 1:
+```
+# outputs 1, 2, 3, 4, 5 one by one:
+VAR m 0
+WHILE true
+	IF m > 5
+		BREAK
+	END
+	DEBUG_LOG m
+	VAR m m + 1
+END
+```
+
+Example 2:
+```
+VAR n 0
+WHILE true
+	WHILE true
+		IF n > 5
+			# breaks the outer cycle
+			BREAK 1
+		END
+		VAR n n + 1
+	END
+END
+
+# outputs 6
+DEBUG_LOG n
+```
+
+#### `DEBUG_LOG`
+
+Syntax:
+```
+DEBUG_LOG <expressionWithoutX>
+```
+
+`DEBUG_LOG` is used to output something in the console.
+It does not affect anything else.
+
+#### `COMMENT`
+
+Syntax:
+```
+COMMENT <anything>
+```
+
+This control sentence is of no use.
 
 #### Expressions
 
