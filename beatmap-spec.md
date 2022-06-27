@@ -8,6 +8,7 @@ The two parts are separated by a single `---` line.
 
 The following are just some specifications.
 To read these, you are assumed to have enough knowledge about notations in sheet music.
+It is better for you to have knowledge about programming.
 
 ## Header
 
@@ -100,8 +101,12 @@ audio starts playing at `start` while the beatmap starts at `start + offset`.
 
 ## Rows
 
-Different **row**s in the beatmap are separated by an empty line.
+Different **row**s in the beatmap are separated by empty line(s) and/or control sentences.
 Do not include empty lines within a row.
+
+In the rows part of the beatmap file,
+any line started with a sharp symbol (`#`) (with possibly padding white characters) is ignored.
+They serve as comments and help readers of the beatmap file to understand it.
 
 Every row consists of one or several **voice**s.
 Each voice consists of several **note**s and **bar line**s and is written within a line.
@@ -110,25 +115,25 @@ together with symbols denoting whether the note is hold, tied, beamed, etc.
 
 ### Control sentences
 
-Before specifying the notes in a row, some control sentences can be included for the row.
-Each control sentence includes a function name and one or more parameters,
+Before specifying the notes in a row, some **control sentence**s can be included for the row.
+Each control sentence includes a keyword and one or more parameters,
 separated by spaces.
-The function name must start with a capitalized letter, and the rest letters are case-insensitive.
+Keywords are case-sensitive and are identifiers of various control sentences.
 
-Here is some function names and the corresponding parameters.
+Here are specifications of the control sentences.
 
 #### `PERFECT`, `GOOD`, `BAD`
 
 Syntax:
 
 ```text
-PERFECT <window_radius>
-GOOD <window_radius>
-BAD <window_radius>
+PERFECT <windowRadius>
+GOOD <windowRadius>
+BAD <windowRadius>
 ```
 
 These control sentences accept one parameter, indicating the radius of the judgement window.
-The `window_radius` is NOT in milliseconds but is the ratio of the inaccuracy tolerance for a perfect / good / bad judge
+The `windowRadius` is NOT in milliseconds but is the ratio of the inaccuracy tolerance for a perfect / good / bad judge
 and the total (temporal) length of the row.
 Therefore, given the same radius of judgement window, judging will be stricter if the row is shorter (in time).
 
@@ -469,7 +474,7 @@ TIME (x+x^4)/2
 JUDGEMENT_LINE_X (x+x^2)/2
 ```
 
-#### `FUN`'
+#### `FUN`
 
 (Also aliased as `FUNCTION`.)
 

@@ -54,6 +54,8 @@
 
 #### tuplet
 
+(synonym: grouping)
+
 #### rest
 
 ### row
