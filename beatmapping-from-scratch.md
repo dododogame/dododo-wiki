@@ -34,12 +34,17 @@ you are usually free to pick that music.
 Otherwise, if the artist has not claimed about the extent to which the use of the music is permitted,
 you had better contact the artist for asking whether you can legally create a beatmap for the music.
 
-In this guide, *Big-D* (artist: Shaolin Dub) is picked.
-
-<audio controls="controls">
-  <source type="audio/mp3" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/MQ8JO0BqKl2UADzKg74rwoY7mapqBT4uWpQYciTJ.mp3"></source>
-  <p>Your browser does not support the audio element.</p>
-</audio>
-
-The license of the music:
+In this guide,
+[*Big-D*](https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/MQ8JO0BqKl2UADzKg74rwoY7mapqBT4uWpQYciTJ.mp3)
+(artist: Shaolin Dub) is picked. License of music:
 [![CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+## Step 3: Write the frontmatter
+
+## Step 4: Write the rows
+
+## Step 5: Add special effects (optional)
+
+## Step 6: Play it yourself!
+
+## Step 7: Publish the beatmap
