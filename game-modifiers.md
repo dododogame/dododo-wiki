@@ -34,6 +34,13 @@ which is shorter when the play rate is higher.
 This modifier makes the computer play for you and ignore your inputs.
 It does not guarantee an all-perfect play if there are impossible notes in the beatmap.
 
+## `noFail`
+
+This modifier prevents the player from failing when the HP is about to drop below zero.
+HP is clamped between 0 and 1, so this cannot make HP actually drop below zero.
+
+Despite this, it cannot prevent the player from getting the "G" mark.
+
 ## `noBad`
 
 This modifier makes your gameplay have no bad hits.
