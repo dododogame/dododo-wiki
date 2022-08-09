@@ -10,7 +10,7 @@ Keywords are case-sensitive and are identifiers of various control sentences.
 
 The following are specifications of the control sentences.
 Sometimes these control sentences make use of an expression or an expression without x,
-see [Expressions](beatmap-spec#expressions)
+see [Expressions](beatmap-spec#expressions).
 
 ## `PERFECT`, `GOOD`, `BAD`
 
@@ -19,10 +19,12 @@ Syntax:
 ```text
 PERFECT <windowRadius>
 ```
-```
+
+```text
 GOOD <windowRadius>
 ```
-```
+
+```text
 BAD <windowRadius>
 ```
 
@@ -93,13 +95,16 @@ Syntax:
 ```text
 JUDGEMENT_LINE_X <expression>
 ```
-```
+
+```text
 NOTE_X <expression>
 ```
-```
+
+```text
 HIT_X <expression>
 ```
-```
+
+```text
 BAR_LINE_X <expression>
 ```
 
@@ -131,10 +136,12 @@ Syntax:
 ```text
 JUDGEMENT_LINE_Y <expression>
 ```
-```
+
+```text
 JUDGEMENT_LINE_WIDTH <expression>
 ```
-```
+
+```text
 JUDGEMENT_LINE_HEIGHT <expression>
 ```
 
@@ -165,13 +172,16 @@ Syntax:
 ```text
 JUDGEMENT_LINE_RED <expression>
 ```
-```
+
+```text
 JUDGEMENT_LINE_GREEN <expression>
 ```
-```
+
+```text
 JUDGEMENT_LINE_BLUE <expression>
 ```
-```
+
+```text
 JUDGEMENT_LINE_ALPHA <expression>
 ```
 
@@ -194,6 +204,9 @@ in the preferences.
 
 <!-- TODO -->
 
+## `JUDGEMENT_LINE_Z`
+
+<!-- TODO -->
 ## `JUDGEMENT_LINE_BLEND_MODE`
 
 Syntax:
@@ -204,6 +217,7 @@ JUDGEMENT_LINE_BLEND_MODE <blendModeName>
 
 This control sentence changes the blend mode of the judgement line.
 Available options for `blendModeName` are (alphabetically, case-insensitive)
+
 - `ADD`,
 - `ADD_NPM`,
 - `COLOR`,
@@ -229,8 +243,8 @@ If the player enables the WebGL render in his preferences,
 only `NORMAL`, `ADD`, `MULTIPLY`, and `SCREEN` are supported,
 and the other blend modes silently act like `NORMAL`.
 
-(It seems that there lacks documents about how these blend modes work.
-You can look at [this document](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation)
+(It seems that there lacks documents about how these blend modes work. You can look at
+[this document](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation)
 as a reference or just play around by yourself.)
 
 Default: `NORMAL`.
@@ -251,6 +265,7 @@ defined previously:
 
 - [`JUDGEMENT_LINE_X`](#judgement_line_x-note_x-hit_x),
 - [`JUDGEMENT_LINE_Y`](#judgement_line_y-judgement_line_width-judgement_line_height),
+- [`JUDGEMENT_LINE_Z`](#judgement_line_z),
 - [`JUDGEMENT_LINE_RED`](#judgement_line_red-judgement_line_green-judgement_line_blue-judgement_line_alpha),
 - [`JUDGEMENT_LINE_GREEN`](#judgement_line_red-judgement_line_green-judgement_line_blue-judgement_line_alpha),
 - [`JUDGEMENT_LINE_BLUE`](#judgement_line_red-judgement_line_green-judgement_line_blue-judgement_line_alpha),
@@ -280,16 +295,26 @@ in the preferences.
 ## `GENUINE_JUDGEMENT_LINE`
 
 Syntax:
-```
+
+```plain
 GENUINE_JUDGEMENT_LINE
 ```
 
 <!-- TODO -->
 
+## `TEXT`
+
+## `TEXT_TEXT`
+
+## `TEXT_X`, `TEXT_Y`, `TEXT_Z`, `TEXT_ANCHOR_X`, `TEXT_ANCHOR_Y`, `TEXT_ROTATION`, `TEXT_RED`, `TEXT_GREEN`, `TEXT_BLUE`, `TEXT_ALPHA`, `TEXT_BLEND_MODE`
+
+## `TEXT_SCALE_X`, `TEXT_SCALE_Y`
+
 ## `LET`
 
 Syntax:
-```
+
+```text
 LET <identifier> <expression>
 ```
 
@@ -300,30 +325,36 @@ The `identifier` must consist only of digits, letters, or underscores, and not s
 The rule also applies to the identifier specified to variables defined by [`DEF`](#def), [`VAR`](#var), and [`FUN`](#fun).
 
 Example 1:
-```
+
+```plain
 LET y x^2
 TIME (x+y)/2
 ```
+
 In this example, a variable with x `y` is defined using `LET`.
 It is then referred to in the `TIME` control sentence.
 This is equivalent to
-```
+
+```plain
 TIME (x+x^2)/2
 ```
 
 Example 2:
-```
+
+```plain
 LET y x^2
 TIME (x+$y)/2
 JUDGEMENT_LINE_X (x+y)/2
 LET y x^3
 ```
+
 In this example, the variable `y` is value-lockedly referred to in the `TIME` control sentence
 (because it is referred to as `$y` with the dollar symbol).
 If the reference of a variable is value-locked, it will not be affected if the variable is overridden in the future.
 However, the variable `y` is normally referred to in the `JUDGEMENT_LINE_X` control sentence.
 The codes are equivalent to
-```
+
+```plain
 TIME (x+x^2)/2
 JUDGEMENT_LINE_X (x+x^3)/2
 ```
@@ -333,7 +364,8 @@ JUDGEMENT_LINE_X (x+x^3)/2
 (Also aliased as `DEFINE`.)
 
 Syntax:
-```
+
+```plain
 DEF <identifier> <parameters> <expression>
 ```
 
@@ -349,30 +381,36 @@ The parameters list cannot be empty.
 Actually, if the parameters list is empty, it should be defined using [`LET`](#let) instead of `DEF`.
 
 Example 1:
-```
+
+```plain
 DEF f m x^m
 TIME (x+f(2))/2
 ```
+
 In this example, the function `f` is defined using `DEF`,
 and it has one parameter called `m`.
 Then, the function is referred to and invoked in the `TIME` control sentence,
 with the parameter `m` having value `2`.
 The codes are equivalent to
-```
+
+```plain
 TIME (x+x^2)/2
 ```
 
 Example 2:
-```
+
+```plain
 DEF f m (x + x^m) / 2
 TIME $f(2)
 JUDGEMENT_LINE_X f(3)
 DEF f m log(1 + m x) / log(1+m)
 ```
+
 In this example, the function `f` is value-lockedly referred to in the `TIME` control sentence,
 while it is referred to normally in the `JUDGEMENT_LINE_X` control sentence.
 The codes are equivalent to
-```
+
+```plain
 TIME (x + x^2) / 2
 JUDGEMENT_LINE_X log(1 + 3 x) / log(4)
 ```
@@ -382,7 +420,8 @@ JUDGEMENT_LINE_X log(1 + 3 x) / log(4)
 (Also aliased as `VARIABLE`.)
 
 Syntax:
-```
+
+```plain
 VAR <identifier> <expressionWithoutX>
 ```
 
@@ -390,7 +429,8 @@ VAR <identifier> <expressionWithoutX>
 Such variables can be referred to in both expressions with x and expressions without x.
 
 Example 1:
-```
+
+```plain
 VAR a 2003
 VAR b a - 895
 VAR a 520
@@ -403,15 +443,18 @@ DEBUG_LOG b
 ```
 
 Example 2:
-```
+
+```plain
 VAR m 2
 TIME (x+x^m)/2
 JUDGEMENT_LINE_X (x+x^$m)/2
 VAR m 4
 ```
+
 This example illustrates that variables defined by `VAR` can be referred to in a value-locked way.
 It is equivalent to
-```
+
+```text
 TIME (x+x^4)/2
 JUDGEMENT_LINE_X (x+x^2)/2
 ```
@@ -421,7 +464,8 @@ JUDGEMENT_LINE_X (x+x^2)/2
 (Also aliased as `FUNCTION`.)
 
 Syntax:
-```
+
+```plain
 FUN <identifier> <parameters> <expressionWithoutX>
 ```
 
@@ -435,7 +479,8 @@ Technically, you cannot define a function with no parameters in the scope withou
 but a workaround is to just ignore what you have put in the parameters list (see example 2).
 
 Example 1:
-```
+
+```plain
 FUN pythagoras a,b sqrt(a^2+b^2)
 
 # outputs 5:
@@ -443,7 +488,8 @@ DEBUG_LOG pythagoras(3,4)
 ```
 
 Example 2:
-```
+
+```plain
 VAR m 1
 FUN f _ $m
 FUN g _ m
@@ -459,9 +505,10 @@ DEBUG_LOG g()
 ## `PROCEDURE`
 
 Syntax:
-```
+
+```plain
 PROCEDURE <keyword>
-	<block>
+  <block>
 END
 ```
 
@@ -476,16 +523,17 @@ the old one will be overridden by the newly-defined one.
 The aliases of the old one will not be affected (see [`ALIAS`](#alias)).
 
 Example:
-```
+
+```plain
 # This control sentence can calculate the factorial of variable `input` and print it
 PROCEDURE PrintFactorialOfInput
-	VAR result 1
-	VAR i 1
-	WHILE i <= input
-		VAR result result * i
-		VAR i i + 1
-	END
-	DEBUG_LOG result
+  VAR result 1
+  VAR i 1
+  WHILE i <= input
+    VAR result result * i
+    VAR i i + 1
+  END
+  DEBUG_LOG result
 END
 
 VAR input 5
@@ -497,7 +545,8 @@ PrintFactorialOfInput
 ## `UNPROCEDURE`
 
 Syntax:
-```
+
+```plain
 UNPROCEDURE <keyword> [<keyword2> [...]]
 ```
 
@@ -508,7 +557,8 @@ the aliases will not be affected (see [`ALIAS`](#alias)).
 ## `ALIAS`
 
 Syntax:
-```
+
+```plain
 ALIAS <newKeyword> [<newKeyword2> [...]] <oldKeyword>
 ```
 
@@ -516,7 +566,8 @@ ALIAS <newKeyword> [<newKeyword2> [...]] <oldKeyword>
 but with different keyword specified by `newKeyword` etc.
 
 Example 1:
-```
+
+```plain
 ALIAS DL DEBUG_LOG
 UNPROCEDURE DEBUG_LOG
 
@@ -525,14 +576,15 @@ DL 'Hello, world!'
 ```
 
 Example 2:
-```
+
+```plain
 PROCEDURE SomeProcedure
-	DEBUG_LOG 'old'
+  DEBUG_LOG 'old'
 END
 ALIAS OldSomeProcedure SomeProcedure
 PROCEDURE SomeProcedure
-	OldSomeProcedure
-	DEBUG_LOG 'new'
+  OldSomeProcedure
+  DEBUG_LOG 'new'
 END
 
 # outputs "old", and then outputs "new" (without quotes):
@@ -542,14 +594,15 @@ SomeProcedure
 ## `IF`
 
 Syntax:
-```
+
+```plain
 IF <expressionWithoutX>
-	<block>
+  <block>
 [ELSE_IF <expressionWithoutX2>
-	<block2>]
+  <block2>]
 [...]
 [ELSE
-	<blockN>]
+  <blockN>]
 END
 ```
 
@@ -558,9 +611,10 @@ END
 ## `WHILE`
 
 Syntax:
-```
+
+```plain
 WHILE <expressionWithoutX>
-	<block>
+  <block>
 END
 ```
 
@@ -570,16 +624,17 @@ Control sentences in `block` will be executed cyclically while `expressionWithou
 In `block`, [`BREAK`](#break) can be used to jump out of the cycle.
 
 Example:
-```
+
+```plain
 # This control sentence can calculate the factorial of variable `input` and print it
 PROCEDURE PrintFactorialOfInput
-	VAR result 1
-	VAR i 1
-	WHILE i <= input
-		VAR result result * i
-		VAR i i + 1
-	END
-	DEBUG_LOG result
+  VAR result 1
+  VAR i 1
+  WHILE i <= input
+    VAR result result * i
+    VAR i i + 1
+  END
+  DEBUG_LOG result
 END
 
 VAR input 5
@@ -591,9 +646,10 @@ PrintFactorialOfInput
 ## `FOR`
 
 Syntax:
-```
+
+```plain
 FOR <variable>[,<indexVariable>] <expressionWithoutX>
-	<block>
+  <block>
 END
 ```
 <!-- TODO -->
@@ -601,7 +657,8 @@ END
 ## `BREAK`
 
 Syntax:
-```
+
+```plain
 BREAK[ <layer>]
 ```
 
@@ -613,29 +670,31 @@ It specifies how many layers out of which this `BREAK` control sentence jumps.
 If `layer` is not specified, the default value is `0`, which means jump out of one layer of cycle.
 
 Example 1:
-```
+
+```plain
 # outputs 1, 2, 3, 4, 5 one by one:
 VAR m 0
 WHILE true
-	IF m > 5
-		BREAK
-	END
-	DEBUG_LOG m
-	VAR m m + 1
+  IF m > 5
+    BREAK
+  END
+  DEBUG_LOG m
+  VAR m m + 1
 END
 ```
 
 Example 2:
-```
+
+```plain
 VAR n 0
 WHILE true
-	WHILE true
-		IF n > 5
-			# breaks the outer cycle
-			BREAK 1
-		END
-		VAR n n + 1
-	END
+  WHILE true
+    IF n > 5
+      # breaks the outer cycle
+      BREAK 1
+    END
+    VAR n n + 1
+  END
 END
 
 # outputs 6
@@ -645,7 +704,8 @@ DEBUG_LOG n
 ## `DEBUG_LOG`
 
 Syntax:
-```
+
+```plain
 DEBUG_LOG <expressionWithoutX>
 ```
 
@@ -655,7 +715,8 @@ It does not affect anything else.
 ## `COMMENT`
 
 Syntax:
-```
+
+```plain
 COMMENT <anything>
 ```
 

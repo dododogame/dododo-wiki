@@ -161,7 +161,7 @@ Here the `noteLength` and the `multiplicity` are specified by a single character
 0–9 are just literally 0–9, and a–z are 10–35 respectively.
 
 The `noteLength` value represents the log2 of the ratio of
-the time length of a whole note and that of the specified note. 
+the time length of a whole note and that of the specified note.
 
 The `multiplicity` value represents the number of simultaneous notes in the voices.
 A zero multiplicity means that the note is a rest.
@@ -195,6 +195,7 @@ Here is an example of some notes and the rhythm they represent:
 ```text
 2 (3 3 3)3 2 (4 4 4 4 4)5 | 2
 ```
+
 ![\new RhythmicStaff {
 \clef percussion
 \time 4/4

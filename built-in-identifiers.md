@@ -21,10 +21,13 @@ Dododo defined some helper functions that may be useful for beatmapping.
 
 There is an `if` function that can be used to help express piecewise functions.
 Its syntax is
+
 ```text
 if(<condition1>, <value1>[, <condition2>, <value2>[, ... ]][, <elseValue>])
 ```
-It is the same as
+
+It is *almost* the same as
+
 ```text
 condition1 ? value1 : condition2 ? value2 : ... : elseValue
 ```
@@ -111,7 +114,7 @@ All variables set by the gamer in preferences can be used in the math expression
 
 Note that here the strings are 7-character lower-case hexadecimal notation of colors.
 To get the RGB values (in $[0, 1]$), you can use the methods `red()`, `green()`, `blue()`.
-For example, `'#4c8cff'.red()` returns approximately `0.298`, which is `0x4c / 0xff`. 
+For example, `'#4c8cff'.red()` returns approximately `0.298`, which is `0x4c / 0xff`.
 
 The preferences items related to [game modifiers](Game-modifiers) and visuals
 may be different from the gamer's preferences

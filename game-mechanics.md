@@ -15,6 +15,7 @@ or touch the screen (on a device with a touchable screen)
 within the time at which it should be hit (when the [judgement line](#judgement-line) meets the note)
 plus or minus the inaccuracy tolerance (judgement window).
 The available keys on the keyboard that can hit notes are
+
 - All keys corresponding to ASCII characters,
 - All keys in the numbers pad (including <kbd>NumLock</kbd>),
 - Whitespace keys: <kbd>Tab</kbd>, <kbd>Space Bar</kbd>, <kbd>Enter</kbd>,
@@ -137,10 +138,9 @@ and the score is the sum of the two parts, which has a cap of 1000000.
 
 The first part of the score is 500000 times a weighted average of accuracy rates,
 with big notes having double weights:
-$$S\_1=500000\cdot\frac{
-	p+p\_{\mathrm b}+\left(g+g\_{\mathrm b}\right)/4-e
-}{N+N\_{\mathrm b}},$$
+$$S\_1=500000\cdot\frac{p+p\_{\mathrm b}+\left(g+g\_{\mathrm b}\right)/4-e}{N+N\_{\mathrm b}},$$
 where
+
 - $S\_1$ is the first part of score;
 - $p$ is the total number of perfect hit notes (including big notes);
 - $g$ is the total number of perfect hit notes (including big notes);
@@ -152,10 +152,9 @@ where
 
 The second part of the score is related to your performance of completing measures.
 See the explanation of [bar lines](#bar-lines) to know about judging measures.
-$$S\_2=500000\cdot\frac{
-	p\_{\mathrm m}+g\_{\mathrm m}/2
-}{N_{\mathrm m}},$$
+$$S\_2=500000\cdot\frac{p\_{\mathrm m}+g\_{\mathrm m}/2}{N_{\mathrm m}},$$
 where
+
 - $S\_2$ is the second part of score;
 - $p\_{\mathrm m}$ is the total number of perfect measures;
 - $g\_{\mathrm m}$ is the total number of good measures;
