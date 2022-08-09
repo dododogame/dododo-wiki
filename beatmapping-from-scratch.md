@@ -41,10 +41,20 @@ In this guide,
 
 ## Step 3: Write the frontmatter
 
+<!-- TODO -->
+
 ## Step 4: Write the rows
+
+<!-- TODO -->
 
 ## Step 5: Add special effects (optional)
 
-## Step 6: Play it yourself!
+<!-- TODO -->
+
+## Step 6: Play it yourself
+
+<!-- TODO -->
 
 ## Step 7: Publish the beatmap
+
+<!-- TODO -->

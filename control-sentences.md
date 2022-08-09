@@ -18,7 +18,11 @@ Syntax:
 
 ```text
 PERFECT <windowRadius>
+```
+```
 GOOD <windowRadius>
+```
+```
 BAD <windowRadius>
 ```
 
@@ -82,14 +86,21 @@ For example, with the expression `sqrt(x)` you can have the tempo linearly
 
 Default: `x`.
 
-## `JUDGEMENT_LINE_X`, `NOTE_X`, `HIT_X`
+## `JUDGEMENT_LINE_X`, `NOTE_X`, `HIT_X`, `BAR_LINE_X`
 
 Syntax:
 
 ```text
 JUDGEMENT_LINE_X <expression>
+```
+```
 NOTE_X <expression>
+```
+```
 HIT_X <expression>
+```
+```
+BAR_LINE_X <expression>
 ```
 
 Here `<expression>` is a single-variable mathematical expression of variable `x`.
@@ -102,13 +113,16 @@ and the position mapped to 1 is drawn at the rightmost place.
 It is not necessarily monotonically increasing (to possibly make the judgement line move to the left)
 or being continuous (to possibly make the judgement line jump suddenly).
 
-`NOTE_X` and `HIT_X` do similar things to what `SPACE_X` does,
+`NOTE_X` and `HIT_X` do similar things to what `JUDGEMENT_LINE_X` does,
 but `NOTE_X` defines the spatial position of drawn notes
 while `HIT_X` defines the spatial position of the hit effects.
 
+<!-- TODO BAR_LINE_X -->
+
 The default setting of `JUDGEMENT_LINE_X` is `x`.
-The default setting of `NOTE_X` is to be the same as `SPACE_X`.
+The default setting of `NOTE_X` is to be the same as `JUDGEMENT_LINE_X`.
 The default setting of `HIT_X` is to be the same as `NOTE_X`.
+The default setting of `BAR_LINE_X` is to be the same as `NOTE_X`.
 
 ## `JUDGEMENT_LINE_Y`, `JUDGEMENT_LINE_WIDTH`, `JUDGEMENT_LINE_HEIGHT`
 
@@ -116,7 +130,11 @@ Syntax:
 
 ```text
 JUDGEMENT_LINE_Y <expression>
+```
+```
 JUDGEMENT_LINE_WIDTH <expression>
+```
+```
 JUDGEMENT_LINE_HEIGHT <expression>
 ```
 
@@ -146,8 +164,14 @@ Syntax:
 
 ```text
 JUDGEMENT_LINE_RED <expression>
+```
+```
 JUDGEMENT_LINE_GREEN <expression>
+```
+```
 JUDGEMENT_LINE_BLUE <expression>
+```
+```
 JUDGEMENT_LINE_ALPHA <expression>
 ```
 
@@ -161,6 +185,14 @@ These expressions are mappings from $[0, 1]$ to $[0, 1]$, and the default of the
 
 These control sentences are ineffective if the user disabled ornamental judgement line performances
 in the preferences.
+
+## `JUDGEMENT_LINE_ROTATION`
+
+<!-- TODO -->
+
+## `JUDGEMENT_LINE_ANCHOR_X`, `JUDGEMENT_LINE_ANCHOR_Y`
+
+<!-- TODO -->
 
 ## `JUDGEMENT_LINE_BLEND_MODE`
 
@@ -208,7 +240,7 @@ Default: `NORMAL`.
 Syntax:
 
 ```text
-FAKE_JUDGEMENT_LINE
+FAKE_JUDGEMENT_LINE [<label>]
 ```
 
 This control sentence creates a new judgement line for this row of beatmap but a fake one
@@ -216,23 +248,43 @@ This control sentence creates a new judgement line for this row of beatmap but a
 After this control sentence, you can add the following control sentences
 to define the behaviors of the new fake judgement line without affecting the judgement lines
 defined previously:
-- `JUDGEMENT_LINE_X`,
-- `JUDGEMENT_LINE_Y`,
-- `JUDGEMENT_LINE_RED`,
-- `JUDGEMENT_LINE_GREEN`,
-- `JUDGEMENT_LINE_BLUE`,
-- `JUDGEMENT_LINE_ALPHA`,
-- `JUDGEMENT_LINE_WIDTH`,
-- `JUDGEMENT_LINE_HEIGHT`,
-- `JUDGEMENT_LINE_BLEND_MODE`.
+
+- [`JUDGEMENT_LINE_X`](#judgement_line_x-note_x-hit_x),
+- [`JUDGEMENT_LINE_Y`](#judgement_line_y-judgement_line_width-judgement_line_height),
+- [`JUDGEMENT_LINE_RED`](#judgement_line_red-judgement_line_green-judgement_line_blue-judgement_line_alpha),
+- [`JUDGEMENT_LINE_GREEN`](#judgement_line_red-judgement_line_green-judgement_line_blue-judgement_line_alpha),
+- [`JUDGEMENT_LINE_BLUE`](#judgement_line_red-judgement_line_green-judgement_line_blue-judgement_line_alpha),
+- [`JUDGEMENT_LINE_ALPHA`](#judgement_line_red-judgement_line_green-judgement_line_blue-judgement_line_alpha),
+- [`JUDGEMENT_LINE_WIDTH`](#judgement_line_y-judgement_line_width-judgement_line_height),
+- [`JUDGEMENT_LINE_HEIGHT`](#judgement_line_y-judgement_line_width-judgement_line_height),
+- [`JUDGEMENT_LINE_ANCHOR_X`](#judgement_line_anchor_x-judgement_line_anchor_y),
+- [`JUDGEMENT_LINE_ANCHOR_Y`](#judgement_line_anchor_x-judgement_line_anchor_y),
+- [`JUDGEMENT_LINE_ROTATION`](#judgement_line_rotation),
+- [`JUDGEMENT_LINE_BLEND_MODE`](#judgement_line_blend_mode).
 
 You can create more fake judgement lines by using `FAKE_JUDGEMENT_LINE` again
 after finishing defining the previous fake judgement line.
 Later created fake judgement lines appear on top of previously created fake judgement lines.
 Fake judgement lines appear on top of the real judgement line.
 
+You can also specify the `label` parameter to give the fake judgement line a label for it to be referred to later.
+Here, `label` is specified as an expression without x.
+If the a judgement line with the specified `label` does not exist in the current row,
+a new fake judgement line will be created for the row.
+If a judgement line with the specified `label` is already created in the current row,
+you can now use those `JUDGEMENT_LINE_*` control sentences to modify the judgement line with the label.
+
 This control sentence is not effective if the user disables ornamental judgement line performances
 in the preferences.
+
+## `GENUINE_JUDGEMENT_LINE`
+
+Syntax:
+```
+GENUINE_JUDGEMENT_LINE
+```
+
+<!-- TODO -->
 
 ## `LET`
 
@@ -535,6 +587,17 @@ VAR input 5
 # outputs 120:
 PrintFactorialOfInput
 ```
+
+## `FOR`
+
+Syntax:
+```
+FOR <variable>[,<indexVariable>] <expressionWithoutX>
+	<block>
+END
+```
+<!-- TODO -->
+
 ## `BREAK`
 
 Syntax:
