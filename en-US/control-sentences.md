@@ -1,6 +1,8 @@
-# Control sentences
-
-*中文 (中国)*: [控制语句](control-sentences-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: Control sentences
+---
 
 In the beatmap file, before specifying the notes in a row,
 some **control sentence**s can be included for the row.

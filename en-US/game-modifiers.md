@@ -1,6 +1,8 @@
-# Game modifiers
-
-*中文 (中国)*: [游戏修饰器](game-modifiers-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: Game modifiers
+---
 
 **Game modifiers** are items in preferences that you can use to adjust the difficulty of the gameplay.
 They do not affect the calculation of the score and the accuracy rate.

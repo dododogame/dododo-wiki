@@ -1,6 +1,8 @@
-# Beatmap file specifications
-
-*中文 (中国)*: [谱面文件规范](beatmap-spec-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: Beatmap file specifications
+---
 
 A Dododo beatmap is a `.ddd` file in plain-text format.
 The beatmap consists of two parts, the **head** and the list of **row**s.
@@ -13,7 +15,7 @@ It is better for you to have knowledge about programming.
 ## Header
 
 The header consists of several key-value pairs, each of which lies in a line,
-and a key is separated from its corresponding value by `: ` (a colon and a whitespace).
+and a key is separated from its corresponding value by `: `&nbsp;(a colon and a whitespace).
 
 The following items are available:
 
@@ -187,23 +189,23 @@ The ratio consists of two characters, each of which is within `[0-9a-z]` represe
 The first number divided by the second number is
 the ratio of the seeming length of the grouping and the actual length of the grouping.
 The second number can be omitted, and the default value of it is
-$$\mathit{ratio}_2=2\^{\left\lfloor\log\_2\mathit{ratio}\_1\right\rfloor},$$
-where $\mathit{ratio}\_1$ is the first number.
+
+$$\mathit{ratio}_2=2^{\left\lfloor\log_2\mathit{ratio}_1\right\rfloor},$$
+
+where $\mathit{ratio}_1$ is the first number.
 
 Here is an example of some notes and the rhythm they represent:
 
 ```text
 2 (3 3 3)3 2 (4 4 4 4 4)5 | 2
 ```
-
-![\new RhythmicStaff {
-\clef percussion
-\time 4/4
-\set Score.tempoHideNote = ##t \tempo 4 = 80
-c4 \tuplet 3/2 { c8 c c }
-c4 \tuplet 5/4 { c16 c c c c }
-c4
-}](https://upload.wikimedia.org/score/1/e/1ea3xyusyw770pzh5dli2ezzv76si3k/1ea3xyus.png)
+<pre class="abc-pre">
+X: 1
+M: 4/4
+K: perc stafflines = 1
+V:T stem=up
+B2 (3BBB B2 (5B/2B/2B/2B/2B/2 | B2
+</pre>
 
 ### Bar lines
 

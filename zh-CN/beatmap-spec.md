@@ -1,6 +1,8 @@
-# 谱面文件规范
-
-*English (United States)*: [Beatmap file specifications](beatmap-spec)
+---
+layout: wiki-page
+lang: zh-CN
+title: 谱面文件规范
+---
 
 Dododo 谱面是 `.ddd` 纯文本格式的文件。谱面文件由两部分组成，**文件头**和**行**的列表。这两个部分由 `---` 分隔。
 

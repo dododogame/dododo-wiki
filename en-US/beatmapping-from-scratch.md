@@ -1,6 +1,8 @@
-# Beatmapping from scratch
-
-*中文 (中国)*: [从零开始写谱](beatmapping-from-scratch-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: Beatmapping from scratch
+---
 
 This is a walk-through guide for people who write beatmaps for Dododo for the first time.
 

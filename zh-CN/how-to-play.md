@@ -1,6 +1,8 @@
-# 如何游玩
-
-*English (United States)*: [How to play](how-to-play)
+---
+layout: wiki-page
+lang: zh-CN
+title: 如何游玩
+---
 
 在您访问[游戏的网页](https://ulysseszh.github.io/rpg/dododo/)之后，有三种您能开始游玩的方式，每一种都以向游戏提供一张**谱面**开始。
 

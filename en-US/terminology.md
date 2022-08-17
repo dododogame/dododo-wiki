@@ -1,6 +1,8 @@
-# Terminology
-
-*中文 (中国)*: [术语列表](terminology-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: Terminology
+---
 
 ## General
 

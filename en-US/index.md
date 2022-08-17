@@ -1,6 +1,8 @@
-# Home
-
-*中文 (中国)*: [家](Home-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: Wiki
+---
 
 Welcome to the Dododo wiki!
 

@@ -1,6 +1,8 @@
-# How to publish a beatmap
-
-*中文 (中国)*: [如何发布谱面](how-to-publish-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: How to publish a beatmap
+---
 
 Currently, the only official way of publishing a beatmap is to publish it in
 [the Discord channel](https://discord.com/channels/977458815794552842/977481204536311838)

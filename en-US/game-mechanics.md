@@ -1,6 +1,8 @@
-# Game mechanics
-
-*中文 (中国)*: [游戏机制](game-mechanics-zh-cn)
+---
+layout: wiki-page
+lang: en-US
+title: Game mechanics
+---
 
 In this page, a detailed illustration of the process of gameplay is delivered.
 
@@ -125,6 +127,7 @@ The **accuracy rate** is set based on your performance in playing a beatmap.
 The accuracy rate is shown dynamically during the gameplay
 in the bottom-right corner of the gameplay interface.
 The calculation of the accuracy rate is
+
 $$\mathit{AccuracyRate}=\frac{\mathit{perfect}+\mathit{good}/4-\mathit{excess}}{\mathit{perfect}+\mathit{good}+\mathit{bad}+\mathit{miss}}.$$
 
 ## Score
@@ -138,30 +141,35 @@ and the score is the sum of the two parts, which has a cap of 1000000.
 
 The first part of the score is 500000 times a weighted average of accuracy rates,
 with big notes having double weights:
-$$S\_1=500000\cdot\frac{p+p\_{\mathrm b}+\left(g+g\_{\mathrm b}\right)/4-e}{N+N\_{\mathrm b}},$$
+
+$$S_1=500000\cdot\frac{p+p_{\mathrm b}+\left(g+g_{\mathrm b}\right)/4-e}{N+N_{\mathrm b}},$$
+
 where
 
-- $S\_1$ is the first part of score;
+- $S_1$ is the first part of score;
 - $p$ is the total number of perfect hit notes (including big notes);
 - $g$ is the total number of perfect hit notes (including big notes);
-- $p\_{\mathrm b}$ is the total number of perfect hit big notes;
-- $g\_{\mathrm b}$ is the total number of good hit big notes;
+- $p_{\mathrm b}$ is the total number of perfect hit big notes;
+- $g_{\mathrm b}$ is the total number of good hit big notes;
 - $e$ is the total number of excess hits;
 - $N$ is the total number of notes (including big notes);
-- $N\_{\mathrm b}$ is the total number of big notes.
+- $N_{\mathrm b}$ is the total number of big notes.
 
 The second part of the score is related to your performance of completing measures.
 See the explanation of [bar lines](#bar-lines) to know about judging measures.
-$$S\_2=500000\cdot\frac{p\_{\mathrm m}+g\_{\mathrm m}/2}{N_{\mathrm m}},$$
+
+$$S_2=500000\cdot\frac{p_{\mathrm m}+g_{\mathrm m}/2}{N_{\mathrm m}},$$
+
 where
 
-- $S\_2$ is the second part of score;
-- $p\_{\mathrm m}$ is the total number of perfect measures;
-- $g\_{\mathrm m}$ is the total number of good measures;
-- $N\_{\mathrm m}$ is the total number of measures that have at least one note.
+- $S_2$ is the second part of score;
+- $p_{\mathrm m}$ is the total number of perfect measures;
+- $g_{\mathrm m}$ is the total number of good measures;
+- $N_{\mathrm m}$ is the total number of measures that have at least one note.
 
 The final score is the sum of the two parts:
-$$S=S\_1+S\_2.$$
+
+$$S=S_1+S_2.$$
 
 ## Mark
 
