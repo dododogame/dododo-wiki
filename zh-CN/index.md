@@ -10,6 +10,8 @@ title: Wiki
 
 ## 概论
 
+- [版本列表](versions)
+- [桌面端应用](desktop-app)
 - [游戏机制](game-mechanics)
 - [术语列表](terminology)
 
@@ -25,3 +27,9 @@ title: Wiki
 - [控制语句](control-sentences)
 - [预设标识符](built-in-identifiers)
 - [如何发布谱面](how-to-publish)
+
+## License
+
+此 wiki 的所有内容以该协议发布:
+
+[![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)

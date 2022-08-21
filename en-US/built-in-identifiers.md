@@ -4,8 +4,6 @@ lang: en-US
 title: Built-in identifiers
 ---
 
-*中文 (中国)*: [预设标识符](built-in-identifiers-zh-cn)
-
 ## math.js
 
 Dododo uses [math.js](https://mathjs.org/) to process expressions,

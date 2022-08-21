@@ -9,14 +9,15 @@ They do not affect the calculation of the score and the accuracy rate.
 All enabled game modifiers are shown in the middle left of the game interface.
 
 Here is a list of all the modifiers:
+
 | Code                 | Meaning                     | In-game display (English) | Type     | Default              |
 |--------------------------|-------------------------------------|------|----------|----------------------|
-| [`playRate`](#playRate)      | Play rate (speed of music)    | %fx speed       | Number   | `1.0`                |
-| [`autoPlay`](#autoPlay)      | Auto-play          | Auto-play      | Boolean  | `false`              |
-| [`noBad`](#noBad)     | No-bad mode        | No-bad      | Boolean  | `false`              |
-| [`noExcess`](#noExcess) | No-excess mode | No-excess | Boolean | `false` |
-| [`judgeWindow`](#judgeWindow) | Judgement window (smaller is stricter) | %fx judge | Number | `1.0` |
-| [`autoCompleteHolds`](#autoCompleteHolds) | Automatically hold for hold notes | Auto-hold | Boolean | `false` |
+| [`playRate`](#playrate)      | Play rate (speed of music)    | %fx speed       | Number   | `1.0`                |
+| [`autoPlay`](#autoplay)      | Auto-play          | Auto-play      | Boolean  | `false`              |
+| [`noBad`](#nobad)     | No-bad mode        | No-bad      | Boolean  | `false`              |
+| [`noExcess`](#noexcess) | No-excess mode | No-excess | Boolean | `false` |
+| [`judgeWindow`](#judgewindow) | Judgement window (smaller is stricter) | %fx judge | Number | `1.0` |
+| [`autoCompleteHolds`](#autocompleteholds) | Automatically hold for hold notes | Auto-hold | Boolean | `false` |
 
 Any values of these preferences items different from default values are regarded as
 enabling the corresponding game modifier (displayed in-game).

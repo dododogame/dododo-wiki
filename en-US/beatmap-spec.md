@@ -101,6 +101,8 @@ It is different from [`start`](#start) in that the audio before `offset` will be
 Note that, if `start` and `offset` are both specified,
 audio starts playing at `start` while the beatmap starts at `start + offset`.
 
+### `pseWarning`
+
 ## Rows
 
 Different **row**s in the beatmap are separated by empty line(s) and/or control sentences.

@@ -194,7 +194,7 @@ The mark is only related to the accuracy rate
 but not related to the score, the game modifiers, etc.
 
 There is a special "G" mark, which is given if the player fails the level,
-even if the [`noFail`](game-modifiers#noFail) modifier is on.
+even if the [`noFail`](game-modifiers#nofail) modifier is on.
 See [HP](#hp) for details about failing.
 
 The mark is also shown dynamically next to the accuracy rate during the gameplay
