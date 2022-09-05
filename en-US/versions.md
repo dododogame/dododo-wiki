@@ -36,3 +36,19 @@ The date format is YYYY-MM-DD.
 ### [1.0.1.0-1]({{ prefix }}1.0.1.0-1)
 
 - **Date**: 2022-08-21
+
+### [1.0.1.0-2]({{ prefix }}1.0.1.0-2)
+
+- **Date**: 2022-08-25
+- Changes:
+  - Changed a translation in zh-TW.
+  - Changed the built launcher script for Windows (from a bat script to a vbs script).
+  - Fixed a bug about updating the excess number.
+  - Fixed a bug about counting measures.
+  - Fixed a bug about missing left-half ties and right-half ties.
+
+### [1.0.1.0-3]({{ prefix }}1.0.1.0-3)
+
+- **Date**: 2022-09-05
+- Changes:
+  - Tried again to enable uploading files in mobile Safari.
