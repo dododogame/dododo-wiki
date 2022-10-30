@@ -5,7 +5,7 @@ title: Beatmap file specifications
 ---
 
 A Dododo beatmap is a `.ddd` file in plain-text format.
-The beatmap consists of two parts, the **head** and the list of **row**s.
+The beatmap consists of two parts, the **head** (or **frontmatter**) and the list of **row**s.
 The two parts are separated by a single `---` line.
 
 The following are just some specifications.
@@ -103,6 +103,19 @@ audio starts playing at `start` while the beatmap starts at `start + offset`.
 
 ### `pseWarning`
 
+Whether to show the warning about the photosensitive epilepsy (PSE).
+If your beatmap contains flashing lights or any other things that may probably trigger seizures for people with PSE,
+you should specify this item as `true`.
+Before the player starts playing the beatmap,
+if the `pseWarning` is `true`, a warning will be shown to the player:
+
+> This beatmap contains flickers, flashes, blinks, or moving geometric shapes,
+which may potentially trigger seizures for people with photosensitive epilepsy.
+It is recommended to turn off ornamental judgement line performances before playing this beatmap.
+Immediately stop playing and consult a doctor if you experience any symptoms, such as
+lightheadedness, altered vision, eye or face twitching, jerking or shaking of arms or legs, 
+disorientation, confusion, or momentary loss of awareness.
+
 ## Rows
 
 Different **row**s in the beatmap are separated by empty line(s) and/or control sentences.
@@ -184,7 +197,7 @@ Notes can be **beam**ed (flags are connected) by enclosing them with parentheses
 Parenthesized notes without flags will not be beamed.
 
 Beams can be created across bar lines (by inserting `|` between beamed notes)
-but not across rows or voices.
+but not across rows or voices (but this may become a feature in future versions).
 
 **Grouping**s (tuplets) can be created by specifying a ratio after the closing parenthesis.
 The ratio consists of two characters, each of which is within `[0-9a-z]` representing a number.
@@ -201,6 +214,7 @@ Here is an example of some notes and the rhythm they represent:
 ```text
 2 (3 3 3)3 2 (4 4 4 4 4)5 | 2
 ```
+
 <pre class="abc-pre">
 X: 1
 M: 4/4

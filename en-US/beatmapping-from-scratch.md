@@ -36,14 +36,52 @@ you are usually free to pick that music.
 Otherwise, if the artist has not claimed about the extent to which the use of the music is permitted,
 you had better contact the artist for asking whether you can legally create a beatmap for the music.
 
+It is also recommended that you pick a music that has steady tempo.
+If the tempo of the music changes frequently, it is hard to create a beatmap for it
+(because you need to tweak the tempo frequently to make the music and the notes in the beatmap to synchronize).
+Usually, a human-played music (without the auxiliary of a metronome) is not considered to have steady tempo.
+
+It is also not recommended to use a music that is too long.
+A typical length of a music for rhythm games is 1.5--3 minutes.
+However, nobody forces you not to create a beatmap for a music that is even longer than 5 minutes
+(which is usually considered a marathon).
+
 In this guide,
 [*Big-D*](https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/MQ8JO0BqKl2UADzKg74rwoY7mapqBT4uWpQYciTJ.mp3)
 (artist: Shaolin Dub) is picked. License of music:
 [![CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-## Step 3: Write the frontmatter
+## Step 3: Create and start editing the beatmap file
 
-<!-- TODO -->
+The beatmap file is a plain text file with the extension `.ddd`.
+Depending on your operating system, there are different ways of creating a new file.
+
+To edit a plain text file, you need a plain text editor.
+On Windows, there is a built-in plain text editor called Notepad.
+There are also many other plain text editors,
+such as [Sublime Text](https://www.sublimetext.com/), [Visual Studio Code](https://code.visualstudio.com/), etc.
+
+## Step 3: Write the header
+
+The [header](beatmap-spec#header)
+(go to the link to see the format) is where you write the metadata of the beatmap,
+including the title, artist, difficulty, etc.
+
+Here is an example of the header:
+
+```plain
+title: Big-D
+musicAuthor: Shaolin Dub
+beatmapAuthor: UlyssesZhan
+difficulty: 6
+start: 0
+end: 185809
+offset: 68
+volume: 1.2
+---
+```
+
+Remember to end the header with three hyphens (`---`).
 
 ## Step 4: Write the rows
 
