@@ -15,7 +15,7 @@ It is better for you to have knowledge about programming.
 ## Header
 
 The header consists of several key-value pairs, each of which lies in a line,
-and a key is separated from its corresponding value by `: `&nbsp;(a colon and a whitespace).
+and a key is separated from its corresponding value by <code>:&nbsp;</code> (a colon and a whitespace).
 
 The following items are available:
 
@@ -113,7 +113,7 @@ if the `pseWarning` is `true`, a warning will be shown to the player:
 which may potentially trigger seizures for people with photosensitive epilepsy.
 It is recommended to turn off ornamental judgement line performances before playing this beatmap.
 Immediately stop playing and consult a doctor if you experience any symptoms, such as
-lightheadedness, altered vision, eye or face twitching, jerking or shaking of arms or legs, 
+lightheadedness, altered vision, eye or face twitching, jerking or shaking of arms or legs,
 disorientation, confusion, or momentary loss of awareness.
 
 ## Rows

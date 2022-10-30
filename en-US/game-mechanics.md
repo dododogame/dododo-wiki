@@ -202,4 +202,28 @@ based on your performance so far.
 
 ## HP
 
-<!-- TODO -->
+The **HP** (health points) is a value that indicates the health of the player.
+When a note is cleared, the value of HP will change.
+The amount of change is related to the judgement and what did the beatmapper specified in the beatmap.
+Normally, a perfect will increase the HP, and a bad or miss will decrease the HP.
+The value of HP will also change (normally decreases) when there is an excess hit.
+
+The value of HP is a number in the range $[0,1]$.
+It cannot exceed 1.
+If HP increases and is about to exceed 1, it will be clamped to 1.
+
+The value of HP is not shown directly to the player,
+but it is reflected in the **HP bar** at the bottom.
+The HP bar is a line starting from the bottom-left corner of the gameplay interface
+and stretching to the bottom-right corner.
+The length of the HP bar is proportional to the value of HP.
+When HP is 1, the HP bar is full and reaches the bottom-right corner of the gameplay interface.
+When HP is 0, the HP bar is empty and is not visible at all.
+
+The value of HP determines whether the player fails.
+When HP decreases and is about to drop below 0 (not including),
+the player fails.
+If a player fails, the [mark](#mark) will be the "G" mark.
+Unless the [`noFail`](game-modifiers#nofail) modifier is on,
+when a player fails,
+the level immediately stops and the summary interface shows.
