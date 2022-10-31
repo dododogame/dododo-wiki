@@ -28,7 +28,7 @@ title: Wiki
 - [预设标识符](built-in-identifiers)
 - [如何发布谱面](how-to-publish)
 
-## License
+## 许可证
 
 此 wiki 的所有内容以该协议发布:
 

@@ -4,26 +4,53 @@ lang: en-US
 title: Desktop app
 ---
 
-## Install or update the desktop app
+## Install the desktop app
 
 You can run the game locally on your Windows / Linux desktop without internet access if you install it as a desktop app.
 *MacOS is not supported yet.*
 Also, if you want to install the game on a 32-bit machine,
 there are no pre-built packages, and you need to [build the app](#build-the-desktop-app) youself.
 
-To install the game on Windows,
-first download the zip package for Windows from [releases](https://github.com/dododogame/dododo/releases).
-Just extract the contents of the zip file to somewhere you want to install the game, and then
+### Install on Windows
+
+First, download the zip package for Windows from [releases](https://github.com/dododogame/dododo/releases).
+Just extract the contents of the zip file to somewhere you want to install the game.
+Then, you may launch the game by running the script `launcher.vbs` in the game directory.
+
+Optionally, you may
 [create a desktop shortcut](https://support.microsoft.com/en-us/office/create-a-desktop-shortcut-for-an-office-program-or-file-9a8df64b-cd87-4700-95cc-4bc3e2a962da)
 for the file `launcher.vbs`.
 There are icon files in the `www/icon` folder,
-you may change the icon of the shortcut to the icon of the game.
+you may
+[change the icon](https://support.microsoft.com/en-us/topic/how-to-arrange-or-move-icons-on-the-desktop-70e4d22a-d760-5585-449f-2a14c417f84c)
+of the shortcut to the icon of the game.
 
-To install the game on Linux,
-first download the tar.gz package for Linux from [releases](https://github.com/dododogame/dododo/releases).
-Just extract the tar.gz file to somewhere you want to install the game, and then
-create a [desktop entry](https://wiki.archlinux.org/title/desktop_entries) for executing the file `launcher.sh`.
+### Install on Linux
+
+First, download the tar.gz package for Linux from [releases](https://github.com/dododogame/dododo/releases).
+Just extract the tar.gz file to somewhere you want to install the game.
+Then, you may launch the game by running the script `launcher.sh` in the game directory.
+
+Optionally, you may create a
+[desktop entry](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html)
+for executing the file `launcher.sh`.
 The icon can be specified as the one in the `www/icon` folder.
+
+Here is an example of the desktop entry (you should replace `/path/to/dododo` with the actual absolute path of the game):
+
+```ini
+[Desktop Entry]
+Type=Application
+Name=Dododo
+Comment=The open-source community rhythm game with musical notations
+Icon=/path/to/dododo/www/icon/icon.png
+Exec=/path/to/dododo/launcher.sh
+Path=/path/to/dododo/
+Terminal=false
+Categories=Game;
+```
+
+### Update the desktop app
 
 To update the game, download the www-only version of the released package from
 [releases](https://github.com/dododogame/dododo/releases),

@@ -52,3 +52,10 @@ The date format is YYYY-MM-DD.
 - **Date**: 2022-09-05
 - Changes:
   - Tried again to enable uploading files in mobile Safari.
+
+### [1.0.1.0]({{ prefix }}1.0.1.0)
+
+- **Date**: 2022-10-30
+- Changes:
+  - The first version released with built desktop app.
+  - Fixed some Japanese translations.
