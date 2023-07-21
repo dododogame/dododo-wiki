@@ -78,13 +78,10 @@ Dododo 谱面是 `.ddd` 纯文本格式的文件。谱面文件由两部分组�
 如果您的铺面内含有高频闪烁等任何其他可能引发光敏性癫痫患者癫痫发作的东西，您应当将此选项设定为 `true`。
 在玩家开始游玩您的铺面之前，如果此选项被开启，则会向玩家发出警告。
 
-> This beatmap contains flickers, flashes, blinks, or moving geometric shapes,
-which may potentially trigger seizures for people with photosensitive epilepsy.
-It is recommended to turn off ornamental judgement line performances before playing this beatmap.
-Immediately stop playing and consult a doctor if you experience any symptoms, such as
-lightheadedness, altered vision, eye or face twitching, jerking or shaking of arms or legs,
-disorientation, confusion, or momentary loss of awareness.
-<!-- 我不确定这里翻译过来是什么，等到以后看看再补 -->
+> 该谱面包含画面闪烁或移动的几何形状, 这可能会引发光敏性癫痫患者的癫痫发作.
+建议在观看或游玩此谱面之前关闭装饰性判定线表演.
+如果您出现任何症状, 例如头晕, 视力下降, 面部抽搐, 四肢抽搐, 迷失方向, 慌乱, 或暂时失去意识,
+请立即停止游戏并咨询医生.
 
 ## 行
 
@@ -115,6 +112,6 @@ Dododo 中存在两种不同的表达式：**含 x 的表达式**和**不含 x �
 
 ### 音符
 
-### 用符杠连接音符， 以及连音
+### 用符杠连接音符，以及连音
 
 ### 小节线
