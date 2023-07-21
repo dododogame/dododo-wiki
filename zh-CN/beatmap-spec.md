@@ -72,6 +72,20 @@ Dododo 谱面是 `.ddd` 纯文本格式的文件。谱面文件由两部分组�
 
 与 [`start`](#start) 不同在于，`start` 之前的音乐不会播放。请注意，如果 `start` 和 `offset` 都指定了，音频开始播放于 `start`，而谱面开始于 `start + offset`。
 
+### `pseWarning`
+
+是否开启光敏性癫痫警告。
+如果您的铺面内含有高频闪烁等任何其他可能引发光敏性癫痫患者癫痫发作的东西，您应当将此选项设定为 `true`。
+在玩家开始游玩您的铺面之前，如果此选项被开启，则会向玩家发出警告。
+
+> This beatmap contains flickers, flashes, blinks, or moving geometric shapes,
+which may potentially trigger seizures for people with photosensitive epilepsy.
+It is recommended to turn off ornamental judgement line performances before playing this beatmap.
+Immediately stop playing and consult a doctor if you experience any symptoms, such as
+lightheadedness, altered vision, eye or face twitching, jerking or shaking of arms or legs,
+disorientation, confusion, or momentary loss of awareness.
+<!-- 我不确定这里翻译过来是什么，等到以后看看再补 -->
+
 ## 行
 
 每一行由一个或多个**声部**组成。
@@ -88,30 +102,19 @@ Dododo 谱面是 `.ddd` 纯文本格式的文件。谱面文件由两部分组�
 
 ### 控制语句
 
-#### `PERFECT`, `GOOD`, `BAD`
-
-#### `BPM`
-
-#### `MS_PER_WHOLE`
-
-#### `TIME`
-
-#### `SPACE_X`, `NOTE_X`, `HIT_X`
-
-#### `SPACE_Y`, `WIDTH`, `HEIGHT`
-
-#### `RED`, `GREEN`, `BLUE`, `ALPHA`
-
-#### `BLEND_MODE`
-
-#### `FAKE_JUDGE_LINE`
+在每一行的注释之前，您可以给这一行添加一些**控制语句**。
+每个控制语句由关键字和若干个用空格分隔的参数构成。
+关键字大小写敏感，因为它们是各个控制语句的识别符。
+如果您想要查阅控制语句规范，请查看[控制语句](control-sentences)
 
 #### 数学表达式
 
-<!-- 翻译者请注意: 翻译此处的表格时对照该文件: https://github.com/UlyssesZh/dododo/blob/master/js/Strings.js -->
+一些控制语句使用数学表达式作为参数，解析这些数学表达式的功能来自 [math.js](https://mathjs.org/) 。 
+Dododo 中存在两种不同的表达式：**含 x 的表达式**和**不含 x 的表达式**。
+当我们提及到**表达式**而并没有提到是否该表达式是否含 x 时，我们默认此表达式含 x。
 
 ### 音符
 
-### 用符杠连接音符, 以及连音
+### 用符杠连接音符， 以及连音
 
 ### 小节线
